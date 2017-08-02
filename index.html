@@ -1,19 +1,56 @@
 <html>
-  <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
-    <title>美少女战士</title>
-	<link href="//cdn.bootcss.com/skeleton/2.0.4/skeleton.css" rel="stylesheet">
-	<script src="//cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.js"></script>
-	<script src="//cdn.bootcss.com/markdown-it/4.4.0/markdown-it.min.js"></script>
-	<script>
-		window.searchMap = location.search.substr(1).split('&').reduce(function(r, it) {
-			var them = it.split('='); r[them[0]] = them[1]; return r;
-		}, {});
-		$.ajaxSetup({async: false});
-	</script>
-  </head>
-  <body>
-	测试测试 美少女 你有看到吗 看到吗？
-	<div class="markdown-html"><script>$.get(searchMap.md, function(text) { document.write(markdownit().render(text)); });</script></div> 
-  </body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>美少女战士</title>
+	</head>
+	<body>
+		<xmp>
+# 今天吃撑了
+
+-	[	 	] 美少女战士
+-	[	x	] 小笨蛋
+
+![www.baidu.com](http://img/ti.png "百度")	
+这只是个百度图片	
+	
+![baidu][link] 
+[link]:http://img/t2.png "百度"	
+这也只是个百度图片	
+	
+[这是个百度的文字链接](http://www.baidu.com "百度")	
+	
+[这也只是个百度的文字链接][id]
+[id]: http://www.baidu.com/  "百度"	
+	
+[![baidu](http://img/t3.png "百度")](http://www.baidu.com)	
+这是个百度图片链接	
+	
+```java
+class HelloWrold{
+  public static void main(String args[]){
+    System.out.println("Hello World!");
+  }
+}
+```	
+这是一段hello world的java代码	
+	
+***
+|  姓名  |  年龄  |
+| :----: | :----: |
+| zuozuo |   25   |
+| ruirui |   28   |
+
+ ` 美少女 `	
+*战士*	
+**小笨蛋**	
+>嘿嘿	
+	
+<http://www.baidu.com/>	
+直接就是百度的链接	
+	
+~~hahahaha~~	
+
+		</xmp>
+		<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+	</body>
 </html>
