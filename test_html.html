@@ -48,7 +48,7 @@
 		<p>div标签 用于划分不同的独立板块 并用 id属性 来添加标记</p>
 		</div>
 		<hr />
-		<p>超链接</p>
+		<h3>超链接</h3>
 		<pre>&lt;a href="目标网址"  title="鼠标滑过显示的文本"&gt;链接显示的文本&lt;/a&gt;</pre>
 		<br /><br />
 		<code>&lt;a href="目标网址"&nbsp;<strong>target="_blank"</strong>&gt;新窗口超链接&lt;/a&gt;</code>
@@ -62,17 +62,17 @@
 		<p>HTML表单(form) 用于和网站交互</p>
 		<p>1、所有表单控件（文本框、文本域、按钮、单选框、复选框等）都必须放在 &lt;form&gt;&lt;/form&gt; 标签之间（否则用户输入的信息可提交不到服务器上哦！）。</p>
 		<br />
-		<p>文本输入和密码输入</p>
+		<h3>文本输入和密码输入</h3>
 		<pre>
 &lt;form&gt;
 &lt;input type="text/password" name="名称" value="文本" /&gt;
 &lt;/form&gt;
 		</pre>
-		<p>文本域 支持多行文本输入</p>
+		<h3>文本域 支持多行文本输入</h3>
 		<pre>
 &lt;textarea rows="行数" cols="列数"&gt;文本&lt;/textarea&gt;
 		</pre>
-		<p>单选框和复选框</p>
+		<h3>单选框和复选框</h3>
 		<pre>
 &lt;input   type="radio/checkbox"   value="值"    name="名称"   checked="checked"/>
 1、type:
@@ -82,19 +82,19 @@
 3、name：为控件命名，以备后台程序 ASP、PHP 使用，同一组的单选按钮，name 取值一定要一致。
 4、checked：当设置 checked="checked" 时，该选项被默认选中
 		</pre>
-		<p>下拉列表框</p>
+		<h3>下拉列表框</h3>
 		<pre>
 &lt;select&gt;
 &lt;option value:“提交值” select="select"&gt;选项&lt;/option&gt;
 这里select="select"代表该项被默认选中
 &lt;/select&gt;
 		</pre>
-		<p>提交按钮</p>
+		<h3>提交按钮</h3>
 		<pre>
 &lt;input type="submit" value="按钮上的文本"&gt;
 仅当type="submit"提交按钮才有作用
 		</pre>
-		<p>重置按钮</p>
+		<h3>重置按钮</h3>
 		<pre>
 &lt;input type="reset" value="按钮上的文本"&gt;
 重置整个&lt;form&gt;…&lt;form&gt;内的所有框
@@ -105,5 +105,6 @@
 浏览器就会自动将焦点转到和标签相关的表单控件上
 （就自动选中和该label标签相关连的表单控件上）。
 &lt;label for="控件id名称"&gt;
+		</pre>
 	</body>
 </html>

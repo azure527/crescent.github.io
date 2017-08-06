@@ -1,0 +1,187 @@
+<html>
+	<head>
+		<tittle>css学习页面</tittle>
+		<meta http-equiv="content-Type" content="text/thml; charset=utf-8">
+		
+	</head>
+	<body>
+	<h1>CSS样式学习</h1>
+	<hr />
+	<h2>选择器样式</h2>
+	<br />
+	<h2>插入形式分类</h2>
+	<h3>内联式</h3>
+	<pre>
+将css代码卸载标签中：
+
+&lt;标签 style="属性:值;属性:值"&gt;……&lt;/标签&gt;
+&lt;p style="color:red;"&gt;123&lt;/p&gt;
+
+	</pre>
+	<br />
+	<h3>嵌入式</h3>
+	<pre>
+在&lt;head&gt;……&lt;/head&gt;之间插入
+&lt;style type="text/css"&gt;
+
+选择符     声明
+选择符 {  属性:值  ;属性:值}
+p      { color:blue}
+&lt;/style&gt;
+
+为了修改方便也可再最后一条后加上分号
+/*这是注释 和html的注释不同*/
+	</pre>
+	<br />
+	<h3>外部式</h3>
+	<pre>
+将css代码写在一个单独的外部文件
+以.css为扩展名，
+在&lt;head&gt;内
+用&lt;link&gt;标签
+将css样式文件链接到html文件内：
+
+&lt;link href="abc.css" rel="stylesheet" type="text/css" /&gt;
+	</pre>
+	<br />
+	<h3>三种方式的优先级</h3>
+	<p>相同&nbsp;<em>权值</em>&nbsp;条件下</p>
+	<p>内联式>嵌入式>外部式</p>
+	<p>嵌入式>外部式有一个前提：嵌入式css样式的位置一定在外部式的后面。</p>
+	<p>也就是&lt;style&gt;在&lt;link&gt;后面</p>
+	<p>总的来说就是<strong>就近原则</strong></p>
+	<hr />
+	<h3>类/ID 样式</h3>
+	<code>.类选择器名称{css样式代码;}</code>
+	<p>例如：</p>
+	<pre>
+&lt;span class="ZiMu"&gt;abc&lt;/span&gt;	
+.ZiMu{color:red;}
+	</pre>
+	<p>类选择器前面用(.)而ID选择器前面用(#)</p>
+	<p>类用class声明，ID用ID声明</p>
+	<p><strong>ID选择器只能用一次，类选择器可用多次</strong></p>
+	<pre>
+……
+.a{color:red;}
+.b{font-size:20px;}
+……
+&lt;span class="a b"&gt;123&lt;/span&gt;
+	</pre>
+	<hr />
+	<h3>子选择器</h3>
+	<p>用>符号指定标签元素的第一个子元素<p>
+	<code>.a>span{border:1px}</code>
+	<p>即a类所在标签下第一个&lt;span&gt;标签的样式</p>
+	<br />
+	<h3>包含(后代)选择器</h3>
+	<p>使用<span style="color:red;">空格</span>指定标签元素下的<strong>后辈元素</strong></p>
+	<code>.a span{color:red;}</code>
+	<p>即a类所在标签内的所有标签的样式</p>
+	<hr />
+	<h3>通用选择器</h3>
+	<p>用(*)指定html中所有标签</p>
+	<code>* {color:red;}</code>
+	<hr />
+	<h3>伪类选择符</h3>
+	<p>其实和类(class)没有任何关系</p>
+	<p>是给不存在的标签（标签的某种状态）设置样式</p>
+	<p>例如给<span style="color:red;">鼠标滑过的状态</span>设置样式</p>
+	<code>a:haver{color:red}</code>
+	<p>给a标签（超链接）设置鼠标滑过显示为红色</p>
+	<p>兼容性很差 所以只给出常用的haver属性和&lt;a&gt;标签的组合</p>
+	<br />
+	<p>用(,)指定多个标签元素设置样式</p>
+	<pre>
+.a,#b span{color:red;}
+相当于
+.a{color:red;}
+#b span{color:red;}
+	</pre>
+	<hr />
+	<h2>继承</h2>
+	<p>有的样式具有继承性</p>
+	<pre>
+……
+p{color:red;}
+……
+&lt; p &gt; abc &lt; span &gt; def &lt; /span &gt; &lt; /p &gt; 
+……
+&lt; p &gt; 标签下的 &lt; span &gt;标签也是被继承了红字样式 
+而例如
+p {border:1px;}就无法被继承
+	</pre>
+	<hr />
+	<h2>兼容性</h2>
+	<h3>权值</h3>
+	<p>权值越高&nbps;优先级越高</p>
+	<table border=1>
+		<tr>
+			<td>类型</td>
+			<td>继承</td>
+			<td>标签</td>
+			<td> 类 </td>
+			<td> ID </td>
+		</tr>
+		<tr>
+		<td>权值</td>
+		<td> 0.1</td>
+		<td> 001</td>
+		<td> 010</td>
+		<td> 100</td>
+		</tr>
+	</table>
+	<p>权值计算</p>
+	<pre>
+#a .b p{}
+权值：100+10+1=111
+	</pre>
+	<br />
+	<h3>层叠</h3>
+	<p>多个样式 相同权重时</p>
+	<p>根据先后顺序来决定：</p>
+	<pre>
+p{color:red;}
+p{color:green;}
+&lt; p &gt; abc &lt; /p &gt;
+其中abc是绿色字体
+其实和靠近原则一样
+	</pre>
+	<br />
+	<h3>重要性</h3>
+	<p>用<strong>!important</strong>来将优先级提高到最高</p>
+	<code>p{color:red<span style="color:red;">!important</span>;}</code>
+	<p><strong>注意：</strong><span style="color:red;">浏览器默认样式<网页制作者样式<用户自己设置的样式</span></p>
+	<hr />
+	<h2>文字排版</h2>
+	<h3>样式</h3>
+	<p>属性：</p>
+	<pre>
+font-family:宋体		设置字体为宋体
+font-size = 12px;		字号=12
+color = red;			字色=红色
+line-height = 1.6em;		行间距1.6em (1em=16px=1个文字大小)
+border:1px solid red;		1px粗的红色边框 边框颜色为红色
+font-weight:bold;		粗体字
+font-style:italic;		斜体字
+text-decoration:underline;	下划线
+text-decoration:line-through;	删除线
+text-indent:2em;		缩进2个文字大小
+line-height:2em;		行间距（行高）2个文字大小
+letter-spacing:20px;		字间距20px宽
+word-spacing:20px;		英文单词间距20px宽
+text-align:center;		块状元素（标签）内容居中
+	</pre>
+	<hr />
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</body>
+</html>
