@@ -3,21 +3,32 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	</head>
+	<style>
+		#study {
+			float:left;
+			border:1px solid blue;
+		}
+	</style>
 	<body>
-		<div id="header">
-		<a href="index.html" title="我的首页" style=style="float:left;">首页</a>
-		</div>
 		<div>
-			<iframe src="log.html" name="log" width=300 height=600></iframe>
+			<a href="index.html" title="我的首页" style=style="float:left;">首页</a>
 		</div>
+		
+		<div style="border:1px solid blue;">
+			<iframe src="log.html" name="log" width=300 height=400></iframe>
+		</div>
+		
+		<div id="study">
+			<iframe src="test_html.html" width=600  height=300></iframe>
+		</div>
+		
+		<div id="study">
+			<iframe src="test_css.html" width=600 height=300></iframe>
+		</div>
+
 		<div>
 			<iframe src="test_markdown.html" width=300  height=300></iframe>
 		</div>
-		<div>
-			<iframe src="test_html.html" width=700  height=300></iframe>
-		</div>
-		<div>
-			<iframe src="test_css.html" width=700 height=300></iframe>
-		</div>
+		
 	</body>
 </html>

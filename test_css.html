@@ -2,15 +2,20 @@
 	<head>
 		<tittle>css学习页面</tittle>
 		<meta http-equiv="content-Type" content="text/thml; charset=utf-8">
-		
+		<style>
+			
+		</style>
 	</head>
+	
 	<body>
 	<h1>CSS样式学习</h1>
 	<hr />
-	<h2>选择器样式</h2>
-	<br />
+	
+	<h2 style="font-size:30">选择器样式</h2>
+	
+<!-- html代码中的位置 -->
 	<h2>插入形式分类</h2>
-	<h3>内联式</h3>
+	<h3>1.内联式</h3>
 	<pre>
 将css代码卸载标签中：
 
@@ -19,7 +24,8 @@
 
 	</pre>
 	<br />
-	<h3>嵌入式</h3>
+	
+	<h3>2.嵌入式</h3>
 	<pre>
 在&lt;head&gt;……&lt;/head&gt;之间插入
 &lt;style type="text/css"&gt;
@@ -33,7 +39,8 @@ p      { color:blue}
 /*这是注释 和html的注释不同*/
 	</pre>
 	<br />
-	<h3>外部式</h3>
+	
+	<h3>3.外部式</h3>
 	<pre>
 将css代码写在一个单独的外部文件
 以.css为扩展名，
@@ -44,6 +51,7 @@ p      { color:blue}
 &lt;link href="abc.css" rel="stylesheet" type="text/css" /&gt;
 	</pre>
 	<br />
+
 	<h3>三种方式的优先级</h3>
 	<p>相同&nbsp;<em>权值</em>&nbsp;条件下</p>
 	<p>内联式>嵌入式>外部式</p>
@@ -51,6 +59,9 @@ p      { color:blue}
 	<p>也就是&lt;style&gt;在&lt;link&gt;后面</p>
 	<p>总的来说就是<strong>就近原则</strong></p>
 	<hr />
+	
+<!-- 标签样式以外的样式存在形式 -->	
+	<h2>其他形式</h2>
 	<h3>类/ID 样式</h3>
 	<code>.类选择器名称{css样式代码;}</code>
 	<p>例如：</p>
@@ -68,21 +79,28 @@ p      { color:blue}
 ……
 &lt;span class="a b"&gt;123&lt;/span&gt;
 	</pre>
-	<hr />
+	<br />
+	
+<!-- 不常用 -->	
 	<h3>子选择器</h3>
 	<p>用>符号指定标签元素的第一个子元素<p>
 	<code>.a>span{border:1px}</code>
 	<p>即a类所在标签下第一个&lt;span&gt;标签的样式</p>
 	<br />
+	
 	<h3>包含(后代)选择器</h3>
 	<p>使用<span style="color:red;">空格</span>指定标签元素下的<strong>后辈元素</strong></p>
 	<code>.a span{color:red;}</code>
 	<p>即a类所在标签内的所有标签的样式</p>
-	<hr />
+	<br />
+
+<!-- 不常用 -->		
 	<h3>通用选择器</h3>
 	<p>用(*)指定html中所有标签</p>
 	<code>* {color:red;}</code>
 	<hr />
+	
+<!-- 不常用 -->	
 	<h3>伪类选择符</h3>
 	<p>其实和类(class)没有任何关系</p>
 	<p>是给不存在的标签（标签的某种状态）设置样式</p>
@@ -91,6 +109,7 @@ p      { color:blue}
 	<p>给a标签（超链接）设置鼠标滑过显示为红色</p>
 	<p>兼容性很差 所以只给出常用的haver属性和&lt;a&gt;标签的组合</p>
 	<br />
+	
 	<p>用(,)指定多个标签元素设置样式</p>
 	<pre>
 .a,#b span{color:red;}
@@ -99,7 +118,10 @@ p      { color:blue}
 #b span{color:red;}
 	</pre>
 	<hr />
+	
+<!-- 需要记住 -->	
 	<h2>继承</h2>
+	<h3>父元素种的某些样式可继承给后代元素<h3>
 	<p>有的样式具有继承性</p>
 	<pre>
 ……
@@ -111,7 +133,9 @@ p{color:red;}
 而例如
 p {border:1px;}就无法被继承
 	</pre>
-	<hr />
+	<br />
+	
+<!-- 优先级 -->	
 	<h2>兼容性</h2>
 	<h3>权值</h3>
 	<p>权值越高&nbps;优先级越高</p>
@@ -188,7 +212,7 @@ display:inline-block;	将元素设置为内联块状元素
 	<br />
 	<h3>块状元素</h3>
 	<p>特点：</p>
-	<p>每个元素从新的一行开始，且气候的元素也另起一行</p>
+	<p>每个元素从新的一行开始，且其后的元素也另起一行</p>
 	<p>高、宽、行高、顶/底边距可设置</p>
 	<p>默认时是父容器的100%</p>
 	<br />
@@ -200,7 +224,7 @@ display:inline-block;	将元素设置为内联块状元素
 	<br />
 	<h3>内联块状元素</h3>
 	<p>特点：</p>
-	<p>和其他元素再一行上</p>
+	<p>和其他元素在一行上</p>
 	<p>元素高度、宽度、行高、顶/底边距都可设置</p>
 	<br />
 	<h3>盒子模型</h3>
@@ -214,7 +238,7 @@ display:inline-block;	将元素设置为内联块状元素
 	<p>border可以设置粗细、样式和颜色三个属性</p>
 	<pre>
 p{
-	border:2px solid red;
+border:2px solid red;
 }
 或
 P{
@@ -233,7 +257,7 @@ thin midium thick
 border-top:1px solid red;	
 	</pre>
 	<br />
-	<h3>大小<h3>
+	<h3>大小</h3>
 	<p>一个元素的“占地面积”由长宽决定</p>
 	<p>weight和height只是最内层内容的长和宽</p>
 	<pre>
@@ -263,27 +287,55 @@ p {padding:10px 20px;}
 上下10像素 左右20像素
 	</pre>
 	<br />
+	<!--                   -->
 	<h3>边界</h3>
 	<p>margin：元素与其他元素只见的间隔</p>
 	<p>同理，只是margin在边框外，padding在边框内</p>
 	<br />
+	
 	<h3>CSS布局模型</h3>
 	<p>分为三种布局模型：</p>
-	<p>流动模型Flow、浮动模型Float、层模型Layer</p>
+	<p>流动模型Flow（默认）、浮动模型Float、层模型Layer</p>
 	<br />
-	<h3>流动模型Flow</h3>
+	
+	<h3>流动模型Flow（默认）</h3>
 	<p><strong>块状元素</strong>都会在所处的<strong>包含元素内</strong>自上而下按顺序垂直延伸分布</p>
 	<p>因为在默认状态下，块状元素的宽度都为<strong>100%</strong>。实际上，块状元素都会以行的形式占据位置。</p>
+	<p>举例：div标签中即便设置了较低宽度，也会占据一行。</p>
 	<p>在流动模型下，<strong>内联元素</strong>都会在所处的包含元素内从左到右水平分布显示。</p>
 	<br />
-	<h3>浮动模型Float<h3>
+	
+	<h3>浮动模型Float</h3>
 	<p>可使用float:left;将元素设置为居左</p>
 	<br />
+	
 	<h3>层模型</h3>
 	<p>类似ps里的图层，有三种形式：</p>
 	<p>绝对定位position:absolute、相对定位position:relative、固定定位position:fixed</p>
 	<h4>绝对定位</h4>
 	<p>position:absolute将元素使用left、right、top、bottom等相对其<span style="color:red;">最接近的一个具有定位属性的父包含块</span>进行绝对定位</p>
+	<p>即 相对于父元素定位</p>
+	<br />
+	<h4>相对定位</h4>
+	<p>使用position:relative,通过left/right/top/bottom确定在<strong>正常文档流</strong>中的偏移位置</p>
+	<p>首先按static(float)方式生成一个元素然后相对于<span style="font-color:red;">以前的位置</span>进行移动，移动前的位置保留</p>
+	<br />
+	<h4>固定定位</h4>
+	<p>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
