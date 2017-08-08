@@ -316,28 +316,142 @@ p {padding:10px 20px;}
 	<p>position:absolute将元素使用left、right、top、bottom等相对其<span style="color:red;">最接近的一个具有定位属性的父包含块</span>进行绝对定位</p>
 	<p>即 相对于父元素定位</p>
 	<br />
+	
 	<h4>相对定位</h4>
 	<p>使用position:relative,通过left/right/top/bottom确定在<strong>正常文档流</strong>中的偏移位置</p>
 	<p>首先按static(float)方式生成一个元素然后相对于<span style="font-color:red;">以前的位置</span>进行移动，移动前的位置保留</p>
 	<br />
+	
 	<h4>固定定位</h4>
-	<p>
+	<p>position:fixed的相对移动的坐标是视图（网页窗口）本身</p>
+	<p>不会随滚动条滚动而变化</p>
+	<p>与background-attachment:fixed;相同</p>
+	<br />
 	
+	<!-- 相对Relative与绝对Absolute -->
+	<h4>Relative与Absolute组合使用</h4>
+	<p>相对于其他元素进行定位</p>
+	<p>参照定位元素必须是相对定位元素的前辈元素</p>
+	<p>参照定位元素必须加入position:relative</p>
+	<p>相对定位元素必须加入posiotion:absolute</p>
+	<hr />
 	
+	<!-- 简写 -->
+	<h2>代码简写</h2>
+	<h3>盒模型代码简写</h3>
+	<pre>
+外边距margin、内边距padding、边框border设置四个方向按顺时针：
+上右下左 故简写方法如下：
+如果 上=右=下=左 则可简写为 margin:10px;(属性：上右下左px;)
+如果 上=下 左=右 则可简写为 padding:10px,20px;(属性：上下px,左右px;)
+如果 左=右 则可简写为 border:10px 20px 30px;(属性：上px 左右px 下px;)
+	</pre>
+	<br />
 	
+	<h3>颜色值缩写</h3>
+	<p>每两位相同则可缩写一半</p>
+	<pre>
+p{color:#112233}
+可缩写为
+p{color:#123}
+	</pre>
+	<br />
 	
+	<h3>字体缩写</h3>
+	<pre>
+body{
+    font-style:italic;
+    font-variant:small-caps; 
+    font-weight:bold; 
+    font-size:12px; 
+    line-height:1.5em; 
+    font-family:"宋体",sans-serif;
+}
+可缩写为：
+body{
+    font:italic  small-caps  bold  12px/1.5em  "宋体",sans-serif;
+}
+	</pre>
+	<p>至少要指定font-size和font-family两个属性</p>
+	<p>font-size和line-height中加入"/"</p>
+	<hr />
 	
+	<h2>其他</h2>
+	<h3>颜色值</h3>
+	<p>可使用color:red;或color:#00ffff;</p>
+	<p>或color:rgb(133,45,200);或color:rgb(20%,33%,25%);</p>
+	<p>对颜色进行设置</p>
+	<br />
 	
+	<h3>长度值</h3>
+	<p>使用px/em/%作为单位</p>
+	<p>这三种都是相对单位</p>
+	<p>像素是相对于显示器上小点大小的</p>
+	<p>如果font-size=10px;那么1em=14px</p>
+	<p>当给font-size设置单位为em则以p的父元素的font-size为基础</p>
+	<p>百分比同样以font-size为基础</p>
+	<hr />
 	
+	<h3>水平居中设置</h3>
+	<p>分为两种情况：行内元素、块状元素</p>
+	<h4>行内元素<h4>
+	<p>为文本、图片等行内元素通过父元素设置text-align:center来实现居中</p>
+	<br />
 	
+	<h4>块状元素</h4>
+	<p>分为定宽块状元素和不定宽块状元素</p>
+	<h5>定宽块状元素<h5>
+	<p>将width设置为固定值</p>
+	<p>满足以上两个条件（块状+定宽）</p>
+	<p>即可通过margin:10px(上下) auto(左右);实现居中</p>
+	<br />
 	
+	<h5>不定宽块状元素</h5>
+	<p>通过三种方法来居中</p>
+	<p>1.加入table标签</p>
+	<p>2.设置display:inline和父元素text-align:center;(变为行内元素居中方式)</p>
+	<p>3.设置浮动和相对定位实现居中</p>
+	<br />
 	
+	<h6>1.加入table标签使不定宽块状元素居中</h6>
+	<p>table标签具有<span style="color:red;">长度自适应性</span></p>
+	<p>即不定义长度也不默认父元素的长度(table长度根据气馁文本长度决定)</p>
+	<p>因此可看作一个定宽块状元素并利用margin:10px auto;实现居中</p>
 	
+	<h6>2.变为行内元素居中方式</h6>
+	<p>相比以一种方法的优势是不用增加无语义标签</p>
+	<p>但也有一些问题：从块状元素转换为行内元素，少了一些功能，比如设定长度值</p>
 	
+	<h6>3.设置浮动和相对定位实现居中</h6>
+	<p>给父元素设置float:left;position:relative;left:50%;</p>
+	<p>给子元素设置position:relative;left:-50%</p>
+	<hr />
+	<h3>垂直居中</h3>
+	<p>分为两种情况：父元素高度确定的单行文本、父元素高度确定的多行文本 </p>
+	<h4>父元素高度确定的单行文本</h4>
+	<p>通过设置父元素的高度height和行间距line-height</p>
+	<p>文字行间距和块高带来一个问题：</p>
+	<p>当文字内容长度大于块宽时就会有内容脱离块</p>
+	<p>行间距="line-height"-"font-size"</p>
+	<p>行间距分为上下两半分别在文本内容的顶部和底部</p>
+	<br />
 	
+	<h4>父元素高度确定的多行文本</h4>
+	<h5>1.插入table等标签，同时设置vertical-align:middle</h5>
+	<p>vertical-align用于设置居中的属性</p>
+	<p>父元素设置此样式时，对行内块状元素inline-block类型的子元素都有用</p>
+	<br />
 	
+	<h4>块级元素display设置为table-cell表格单元显示</h4>
+	<p>激活vertical-align:middle属性</p>
+	<p>本方法不用添加多余的无意义标签，但兼容性较差</p>
+	<p>不兼容IE6/7，且修改为表格单元模式，破坏了块状元素的性质</p>
+	<hr />
 	
-	
+	<h3>隐性改变display类型</h3>
+	<p>当元素（除display:none外）设置以下两个语句之一</p>
+	<p>position:absolute或float:left/right</p>
+	<p>则display的类型自动变为display:inline-block</p>
 	
 	</body>
 </html>
