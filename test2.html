@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html charset="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<style type="text/css">
+			html {
+				font-family: consolas, 微软雅黑;
+				margin:0;
+				padding:0;
+			}
+			/* 默认字体并初始化 */
+			
+			body {
+				margin:0;
+				padding:0;
+			}
+			/* 初始化 */
+			
+			.sidebar {
+				float:left;
+				width:324px;
+				min-height:100vh;
+				background-color:#ccc;
+				background-image:url('img/bg_sidebar2.jpg');
+				background-repeat:no-repeat;
+				background-size:cover;
+				background-position:center center;
+			}
+			/* 确定header导航元素的位置和大小，并贴上背景图 */
+			
+			.sidebar_tittle {
+				margin:36px 0 0 18px;
+				padding:0 18px;
+			}
+			/* 标题文字位置 */
+			
+			.sidebar_tittle_link{
+				padding:0 0 2.7px 0;
+				text-decoration: none;
+				color:#cfb;
+			}
+			/* 标题文字样式 */
+			
+			.sidebar_tittle_link::selection{
+				background:#cfa;
+				color:white;
+			} 
+			/* 选中标题文字时的样式 */
+			
+			.sidebar_tittle_link:hover {
+				border-bottom:3px solid;
+				color:#cfa;
+			}
+			/* 为超链接添加鼠标移上去的样式 */
+			
+		</style>
+	</head>
+	<body>
+		<header class="sidebar">
+			<h1 class="sidebar_tittle"><a class="sidebar_tittle_link"href="index.html">以前是狼</a></h1>
+		</header>
+	</body>
+</html>
