@@ -6,10 +6,10 @@
 		<meta name="viewport" content="height=device-height, initial-scale=1, user-scalable=no">
 		<link href="../css/Initialization.css" rel="stylesheet" type="text/css" />
 		<!-- 初始化样式 -->
-		
+		<title>Blog · 以前是狼</title>
 		<style type="text/css">
 			/* 下面是左边页面的样式 */
-			
+
 			.sidebar {
 				position:fixed;
 				top:0;
@@ -19,11 +19,23 @@
 				padding:36px 18px;
 				width:288px;
 				background-color:#000;
-				background-image:url(../img/bg_sidebar.jpg);
+				background-image:url(../img/bg_sidebar_study.jpg);
 				background-size:cover;
 				background-position:center center;
 			}
 			/* 确定header导航元素的位置和大小，并贴上背景图 */
+			
+			@media (max-width:36rem) {
+				.sidebar {
+					margin:0;
+					border:0;
+					padding:0;
+					height:0;
+					width:0;
+					overflow:hidden;
+				}
+			}
+			/* 当窗口宽度小于某个值 隐藏左侧边框 */
 			
 			.sidebar::before {
 				content:"";
@@ -109,8 +121,13 @@
 		<style type="text/css">
 		/* 下面是右边页面的样式 */
 			
+			@media (max-width:36rem) {
+				main {
+					margin-left:1rem;
+				}
+			}
 			
-			@media (max-width:48rem) {
+			@media (min-width:36rem) {
 				main {
 					margin-left:18rem;
 				}
@@ -150,26 +167,75 @@
 			.post_p {
 				line-height:2;
 				color:#999;
+				background-color:#f9f9f9;
 			}
 			
 			.post_p span{
 				font-weight:bold;
 				color:#33f;
 			}
+			
+			.post li {
+				margin-bottom:1rem;
+			}
+			
+			.post_a {
+				position:relative;
+				padding-bottom:0.3rem;
+				border-bottom:3px solid transparent;
+				text-decoration: none;
+				color:#693;
+			}
+			
+			.post_a small {
+				color:#999;
+			}
+			
+			.post_a:hover {
+				border-bottom: 3px #693 solid;
+			}
+			
+			
+			
+			
 		</style>
 	</head>
 	<body>
 		<main>
-				<article>
-					<h1 class="post_title">关于本站</h1>
+				<article class="post">
+					<h1 class="post_title">学习目录</h1>
+					<p class="post_p">目前学习html、css、markdown的学习笔记：</p>
 					<hr />
-					<p class="post_p">这个网站是我再次开始学习<span>html/css</span>和<span>markdown</span>之类标记语言而建立的</p>
-					<p class="post_p">其实很早就开始接触各种静态或动态编程语言</p>
-					<p class="post_p">但一直没有系统的进行记录和实践</p>
-					<p class="post_p">自从2017年开始接触<span>github</span>便在github建了本站</p>
-					<p class="post_p">试着把一些记录和心得放上来</p>
-					<p class="post_p">也不知道最后能成什么样</p>
-					<p class="post_p"></p>
+					<ul>
+						<li>
+							<a class="post_a" href="./study_html.html">HTML学习
+								<small>
+									<time>2017/07/20</time>
+								</small>
+							</a>
+						</li>
+						<li>
+							<a class="post_a" href="./study_css.html">CSS学习
+								<small>
+									<time>2017/07/30</time>
+								</small>
+							</a>
+						</li>
+						<li>
+							<a class="post_a" href="./study_markdown.html">MarkDown学习
+								<small>
+									<time>2017/08/10</time>
+								</small>
+							</a>
+						</li>
+						<li>
+							<a class="post_a" href="./study_index.html">施工中……
+								<small>
+									<time>time</time>
+								</small>
+							</a>
+						</li>
+					</ul>
 				</article>
 		</main>
 		<header class="sidebar">
@@ -185,7 +251,7 @@
 					</li>
 				
 					<li>
-						<a class="sidebar_link" href="">作品展示</a>
+						<a class="sidebar_link" href="">作品展示 施工中……</a>
 					</li>
 				
 					<li>

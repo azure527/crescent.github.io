@@ -6,10 +6,10 @@
 		<meta name="viewport" content="height=device-height, initial-scale=1, user-scalable=no">
 		<link href="../css/Initialization.css" rel="stylesheet" type="text/css" />
 		<!-- 初始化样式 -->
-		
+		<title>Blog · 以前是狼</title>
 		<style type="text/css">
 			/* 下面是左边页面的样式 */
-			
+
 			.sidebar {
 				position:fixed;
 				top:0;
@@ -19,11 +19,23 @@
 				padding:36px 18px;
 				width:288px;
 				background-color:#000;
-				background-image:url(../img/bg_sidebar2.jpg);
+				background-image:url(../img/bg_sidebar_study.jpg);
 				background-size:cover;
 				background-position:center center;
 			}
 			/* 确定header导航元素的位置和大小，并贴上背景图 */
+			
+			@media (max-width:36rem) {
+				.sidebar {
+					margin:0;
+					border:0;
+					padding:0;
+					height:0;
+					width:0;
+					overflow:hidden;
+				}
+			}
+			/* 当窗口宽度小于某个值 隐藏左侧边框 */
 			
 			.sidebar::before {
 				content:"";
@@ -42,6 +54,7 @@
 			.sidebar_title {
 				margin:36px 0 27px 0;
 				padding:0 18px;
+				z-index:1;
 			}
 			/* 标题文字位置 */
 			
@@ -108,8 +121,13 @@
 		<style type="text/css">
 		/* 下面是右边页面的样式 */
 			
+			@media (max-width:36rem) {
+				main {
+					margin-left:1rem;
+				}
+			}
 			
-			@media (max-width:48rem) {
+			@media (min-width:36rem) {
 				main {
 					margin-left:18rem;
 				}
@@ -149,30 +167,102 @@
 			.post_p {
 				line-height:2;
 				color:#999;
+				background-color:#f9f9f9;
 			}
 			
 			.post_p span{
 				font-weight:bold;
 				color:#33f;
 			}
+			
+			.post li {
+				margin-bottom:1rem;
+			}
+			
+			.post_a {
+				position:relative;
+				padding-bottom:0.3rem;
+				border-bottom:3px solid transparent;
+				text-decoration: none;
+				color:#693;
+			}
+			
+			.post_a small {
+				color:#999;
+			}
+			
+			.post_a:hover {
+				border-bottom: 3px #693 solid;
+			}
+			
+			
+			
+			
 		</style>
 	</head>
 	<body>
 		<main>
-				<article>
-					<h1 class="post_title">关于本站</h1>
+				<article class="post">
+					<h1 class="post_title">MarkDown学习</h1>
+					<p class="post_p">目前学习MD的学习笔记：</p>
 					<hr />
-					<p class="post_p">这个网站是我再次开始学习<span>html/css</span>和<span>markdown</span>之类标记语言而建立的</p>
-					<p class="post_p">其实很早就开始接触各种静态或动态编程语言</p>
-					<p class="post_p">但一直没有系统的进行记录和实践</p>
-					<p class="post_p">自从2017年开始接触<span>github</span>便在github建了本站</p>
-					<p class="post_p">试着把一些记录和心得放上来</p>
-					<p class="post_p">也不知道最后能成什么样</p>
-					<p class="post_p"></p>
+					<xmp>
+# 今天吃撑了
+
+<font face="黑体">我是黑体字</font>		
+<font face="微软雅黑">我是微软雅黑</font>	
+<font face="STCAIYUN">我是华文彩云</font>	
+<br>
+<font color=#0099ff size=12 face="黑体">黑体</font>	
+<br>
+<font color=#00ffff size=3>null</font>	
+<font color=gray size=5>gray</font>	
+
+![www.baidu.com](http://www.azcre.space/img/loading.gif "百度")	
+这只是个百度图片	
+	
+![baidu][link] 
+[link]:http://www.azcre.space/img/t2.png "百度"	
+这也只是个百度图片	
+	
+[这是个百度的文字链接](http://www.baidu.com "百度")	
+	
+[这也只是个百度的文字链接][id]
+[id]: http://www.baidu.com/  "百度"	
+	
+[![baidu](http://www.azcre.space/img/t3.png "百度")](http://www.baidu.com)	
+这是个百度图片链接	
+	
+```java
+class HelloWrold{
+  public static void main(String args[]){
+    System.out.println("Hello World!");
+  }
+}
+```	
+这是一段hello world的java代码	
+	
+***
+|  姓名  |  年龄  |
+| :----: | :----: |
+| zuozuo |   25   |
+| ruirui |   28   |
+
+ ` 美少女 `	
+*战士*	
+**小笨蛋**	
+>嘿嘿	
+	
+<http://www.baidu.com/>	
+直接就是百度的链接	
+	
+~~hahahaha~~	
+		</xmp>
+		<!--<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>-->
 				</article>
 		</main>
-		<header class="sidebar">
 		
+		<header class="sidebar">
 			<h1 class="sidebar_title">
 				<a class="sidebar_title_link"href="../index.html">以前是狼</a>
 			</h1>
@@ -180,11 +270,11 @@
 			<nav>
 				<ul>
 					<li>
-						<a class="sidebar_link" href="" >学习笔记</a>
+						<a class="sidebar_link" href="./study_index.html" >学习笔记</a>
 					</li>
 				
 					<li>
-						<a class="sidebar_link" href="">作品展示</a>
+						<a class="sidebar_link" href="">作品展示 施工中……</a>
 					</li>
 				
 					<li>

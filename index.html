@@ -9,7 +9,7 @@
 		<title>Blog · 以前是狼</title>
 		<style type="text/css">
 			/* 下面是左边页面的样式 */
-			
+
 			.sidebar {
 				position:fixed;
 				top:0;
@@ -19,11 +19,23 @@
 				padding:36px 18px;
 				width:288px;
 				background-color:#000;
-				background-image:url(img/bg_sidebar2.jpg);
+				background-image:url(img/bg_sidebar_index.jpg);
 				background-size:cover;
 				background-position:center center;
 			}
 			/* 确定header导航元素的位置和大小，并贴上背景图 */
+			
+			@media (max-width:36rem) {
+				.sidebar {
+					margin:0;
+					border:0;
+					padding:0;
+					height:0;
+					width:0;
+					overflow:hidden;
+				}
+			}
+			/* 当窗口宽度小于某个值 隐藏左侧边框 */
 			
 			.sidebar::before {
 				content:"";
@@ -109,8 +121,13 @@
 		<style type="text/css">
 		/* 下面是右边页面的样式 */
 			
+			@media (max-width:36rem) {
+				main {
+					margin-left:1rem;
+				}
+			}
 			
-			@media (max-width:48rem) {
+			@media (min-width:36rem) {
 				main {
 					margin-left:18rem;
 				}
@@ -166,7 +183,8 @@
 					<p class="post_p">这个网站是我再次开始学习<span>html/css</span>和<span>markdown</span>之类标记语言而建立的</p>
 					<p class="post_p">其实很早就开始接触各种静态或动态编程语言</p>
 					<p class="post_p">但一直没有系统的进行记录和实践</p>
-					<p class="post_p">自从2017年开始接触<span>github</span>便在github建了本站</p>
+					<p class="post_p">自从2017年开始接触<span>github</span>并在github建了本站</p>
+					<p class="post_p">并仿造<span>酒石酸菌</span>的博客</p>
 					<p class="post_p">试着把一些记录和心得放上来</p>
 					<p class="post_p">也不知道最后能成什么样</p>
 					<p class="post_p"></p>
@@ -185,7 +203,7 @@
 					</li>
 				
 					<li>
-						<a class="sidebar_link" href="">作品展示</a>
+						<a class="sidebar_link" href="">作品展示 施工中……</a>
 					</li>
 				
 					<li>
