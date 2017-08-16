@@ -1,0 +1,294 @@
+<h1>JS学习</h1>
+<br />
+<h2>如何使用JavaScript</h2>
+<br />
+
+<h3>&lt;script&gt;标签</h3>
+<rem>
+&lt;script type="text/javascript"&gt;
+	……
+&lt;/script&gt;
+中插入JavaScript代码
+</rem>
+<br />
+
+<h3>应用JS外部文件</h3>
+<rem>
+插入
+&lt;script src="script.js"&gt;&lt;/script&gt;
+即可执行JavaScript代码
+js文件也可放在&lt;body&gt;部分
+在网页读取到该语句时执行
+注意: javascript作为一种脚本语言可以放在html页面中任何位置
+但是浏览器解释html时是按先后顺序的
+所以前面的script就先被执行
+比如进行页面显示初始化的js必须放在head里面
+因为初始化都要求提前进行（如给页面body设置css等）
+而如果是通过事件调用执行的function那么对位置没什么要求的
+</rem>
+<hr />
+
+<h2>语句和符号</h2>
+<h3>格式</h3>
+<p>结尾加上“:”表示一行语句的结束</p>
+<p>单行注释：在注释内容前加“//”</p>
+<p>多行注释同CSS 以“/*”开头 以“*/”结束</p>
+<p></p>
+<p></p>
+<p></p>
+<hr />
+
+<h2>变量</h2>
+<rem>
+使用“var 变量名”来定义变量
+注意：
+1.必须使用字母、下划线或$开始
+2.然后可以使用多个字母、数字、下划线或$
+3.不能使用JS关键词与JS保留字
+4.变量要先声明再赋值 可被重复赋值
+5.JS中区分大小写
+6.可同时生命多个变量 用“,”隔开
+var a01;
+aa1=123;
+aa1="abc";
+var a02=123;
+var a01=123,a02=456;
+var 数组变量名=new Array([数组长度上限]);
+var myarray = new Array(66,80,90,77,59)
+var myarray = [66,80,90,77,59];
+myarray[0]=66; 
+myarray[1]=80; 
+myarray[2]=90; 
+……
+Array[0]代表第一个位置
+myarray.length;
+获取数组长度
+</rem>
+
+<h2>判断语句</h2>
+<rem>
+if (条件) {
+	条件成立时执行的代码
+}
+else {
+条件不成立时执行的代码
+}
+</rem>
+<hr />
+
+<h2>函数</h2>
+<br />
+<h3>定义函数</h3>
+<rem>
+function 函数名() {
+	函数代码；
+}
+
+function定义函数的关键字
+</rem>
+<br />
+
+<h3>调用函数</h3>
+<rem>
+函数名();
+即可调用函数
+或使用点击事件：
+<imput stype="button" value="点击" onclick="函数名();">
+onclick为点击事件
+</rem>
+<hr />
+
+<h2>内置输出方法</h2>
+<br />
+<h3>文本输出</h3>
+<rem>
+document.write("我是内容")
+用于向html输出流写内容
+或使用变量：
+var a01="我是内容"
+document.write(a01)
+
+输出多项内容用“+”链接：
+document.write(a01+"<br />")
+
+注意：
+JS代码中无法判断多个空格 所以只会显示一个空格
+使用&nbsp;来代替空格
+或使用CSS样式来解决：
+document.write("<span style='white-space:pre;'>"+"1   2       3  "+"</span>")
+white-space:pre;表示空白被浏览器保留
+</rem>
+<br />
+
+<h3>警告</h3>
+<rem>
+消息对话框
+alert(字符串或变量);
+</rem>
+<br />
+
+<h3>确认</h3>
+<rem>
+消息对话筐
+confirm (str);
+参数：文本
+返回：Boolern值
+
+当用户点击确定返回true
+当用户点击取消返回false
+</rem>
+<br />
+
+<h3>提问</h3>
+<rem>
+prompt(str1,str2);
+询问：包含一个确定按钮、取消按钮和一个文本输入框
+参数：
+str1 要显示在对话框中的文本 不可修改
+str2 文本框中的内容 可以修改
+返回：
+点击确定将文本框中的内容作为返回值
+点取消返回null
+</rem>
+<br />
+
+<h3>打开新窗口</h3>
+<rem>
+windows.open([URL],[窗口名称],[参数字符串]);
+查找一个已经存在或新建的浏览器窗口
+参数：（[]表示可选参数）
+URL：			在窗口中要显示网页的网址或路径
+				如果省略这个参数
+				或者它的值是空字符串
+				那么窗口就不显示任何文档
+窗口名称：		由字母、数字、下划线组成
+				特殊意义的名称：
+				_blank：新窗口显示目标网页
+				_self：当前窗口显示目标网页
+				_top：框架网页中再上部窗口中显示目标网页
+				相同name的窗口只能创建一个
+				name不能包含空格
+参数字符串：	设置窗口参数 各参数用“,”隔开
+				top=number(px)窗口顶部距离屏幕的距离
+				left=同上左
+				widht=窗口宽度
+				height=高度
+				menubar=yes/no 是否有菜单
+				toolbar=yes/no 是否有工具条
+				scrollbars=yes/no 是否有滚动条
+				status=yes/no 是否有状态栏
+</rem>
+<br />
+
+<h3>关闭窗口</h3>
+<rem>
+window.close();
+关闭本窗口
+&lt;窗口对象&gt;.close();
+关闭指定的窗口
+var mywin=window.open('http://www.imooc.com');
+//将新打的窗口对象，存储在变量mywin中
+mywin.close();
+即可关闭指定窗口
+</rem>
+<hr />
+
+<h2>DOM</h2>
+<br />
+<h3>概念</h3>
+<rem>
+文档对象模型DOM（Document Object Model）
+定义访问和处理HTML文档的标准方法
+DOM 将HTML文档呈现为带有元素、属性和文本的树结构（节点树）
+元素节点：	html body p等元素都是元素节点 即标签
+文本节点：	向用户展示的内容
+			如JS DOM CSS等文本
+属性节点：	元素属性
+</rem>
+<br />
+
+<h3>通过ID获取元素</h3>
+<rem>
+因标签的id是唯一的
+所以在网页中 通过id找到标签并进行操作
+docement.getElementById("id")
+</rem>
+<br />
+
+<h3>innerHTML属性</h3>
+<rem>
+Object.innerHTML
+用于获取或替换HTML元素的内容
+注意:
+Object是获取的元素对象，通过document.getElementById("id")获取
+区分大小写
+</rem>
+<br />
+
+<h3>改变HTML样式</h3>
+<rem>
+Object.style.property="new style";
+属性(property)
+</rem>
+<br />
+
+<h3>显示和隐藏（display属性）</h3>
+<rem>
+Object.style.display=value;
+value取值：
+none 隐藏
+block 显示
+</rem>
+<br />
+
+<h3>控制类名（className属性）</h3>
+<rem>
+object.className=classname
+指定或改变一个元素的类名
+</rem>
+<br />
+
+<h3></h3>
+<rem>
+
+</rem>
+<br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
