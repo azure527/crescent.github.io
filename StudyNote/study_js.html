@@ -280,16 +280,70 @@ mywin.close();
 <h3>概念</h3>
 <rem>
 文档对象模型DOM（Document Object Model）
-定义访问和处理HTML文档的标准方法
-DOM 将HTML文档呈现为带有元素、属性和文本的树结构（节点树）
-元素节点：	html body p等元素都是元素节点 即标签
-文本节点：	向用户展示的内容
-			如JS DOM CSS等文本
-属性节点：	元素属性
+定义：
+	访问和处理HTML文档的标准方法
+	DOM将HTML文档呈现为带有元素、属性和文本的树结构（节点树）
+	元素节点：	html body p等元素都是元素节点 即标签
+	文本节点：	向用户展示的内容 如JS DOM CSS等文本
+	属性节点：	元素属性
+属性：
+	nodeName/Type/Value
+	返回给定节点的名字(字符串)/类型(整数)/当前值
+遍历节点数
+	childNodes
+	返回由给定元素节点的子节点构成的数组
+	first/lastChild
+	返回第一个/最后一个子节点
+	parentNode
+	返回给定节点的父节点
+	next/previousSlibling
+	返回给定节点的下一个/上一个子节点
+方法：
+	document.createElement(element)
+	定义：
+		创建一个新的元素节点
+
+	document.createTextNode()
+	定义：
+		创建一个包含给定文本的新文本节点
+
+	appendChild()
+	定义：
+		制定节点的最后一个子节点之后添加一个新的子节点
+
+	insertBefore()
+	定义：
+		将一个给定节点插入到一个给定元素节点的给定子节点后面
+
+	removeChild()
+	定义：
+		从给定元素中删除一个子节点
+
+	replaceChild()
+	定义：
+		把一个给定父元素里的一个子节点替换为另外一个节点
+
+	document.getElementByName(name)
+		定义：
+			返回带有指定名称的节点对象的集合
+			因name的值可能不是唯一，所以返回的是元素的数组
+		参数name:
+			元素name属性的值
+	document.getElementByTagName(Tagname)
+		定义：
+			返回带有指定标签名的节点对象的集合
+			其顺序是她们在文档中的顺序 数组
+		参数Tagname:
+			是标签的名称 如p a img等
+	elementNode.getArrtibute(name)
+		定义：
+			通过元素节点的属性名称获取属性的值
+		参数name：
+			elementNode元素中某个属性的名字
 </rem>
 <br />
 
-<h3>通过ID获取元素</h3>
+<h3>提取或设定元素的值</h3>
 <rem>
 因标签的id是唯一的
 所以在网页中 通过id找到标签并进行操作
