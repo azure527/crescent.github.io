@@ -1,66 +1,71 @@
-﻿<!DOCTYPE HTML>
+﻿<!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-        <title>无标题文档</title>
-    </head>
-    
-    <body>
-        <form>
-          请选择你爱好:<br>
-          <input type="checkbox" name="hobby" id="hobby1">  音乐
-          <input type="checkbox" name="hobby" id="hobby2">  登山
-          <input type="checkbox" name="hobby" id="hobby3">  游泳
-          <input type="checkbox" name="hobby" id="hobby4">  阅读
-          <input type="checkbox" name="hobby" id="hobby5">  打球
-          <input type="checkbox" name="hobby" id="hobby6">  跑步 <br>
-          <input type="button" value = "全选" onclick = "checkall();">
-          <input type="button" value = "全不选" onclick = "clearall();">
-          <p>请输入您要选择爱好的序号，序号为1-6:</p>
-          <input id="wb" name="wb" type="text" >
-          <input name="ok" type="button" value="确定" onclick = "checkone();">
-        </form>
-        <script type="text/javascript">
-        function checkall(){
-            var hobby = document.getElementsByTagName("input");
-           var x;
-           for(x=0;x<hobby.length;x++) {
-               if(hobby[x].type=="checkbox") {
-                   hobby[x].checked=true;
-               }
-           }
-          // 任务1 
-           
-        }
-        function clearall(){
-            var hobby = document.getElementsByName("hobby");
-            var y;
-           for(y=0;y<hobby.length;y++) {
-               if(hobby[y].type=="checkbox") {
-                   hobby[y].checked=false;
-               }
-           }
-         // 任务2    
-            
-        }
-        
-        function checkone(){
-            clearall();
-            var hobby = document.getElementsByName("hobby");
-            var j=document.getElementById("wb").value;
-            for(var i=0;i<j.length;i++) {
-                if(j.charAt(i)>6 || j.charAt(i)<1) {
-                    alert("请输入正确数字")；
-                }
-            }
-            for(var k=0;k<j.length;k++) {
-                    hobby[(j.charAt[k])-1].checked=true;
-            }
-        }   
-         // 任务3
-        
-        
-        
-        </script>
-    </body>
+ <head>
+  <title> new document </title>  
+  <meta http-equiv="Content-Type" content="text/html; charset=gbk"/>   
+  <script type="text/javascript"> 
+      window.onload = function(){
+                  
+     // 鼠标移动改变背景,可以通过给每行绑定鼠标移上事件和鼠标移除事件来改变所在行背景色。
+         
+		
+     
+	 
+	 }
+     
+      // 编写一个函数，供添加按钮调用，动态在表格的最后一行添加子节点；
+     function _addtr () {
+         var _tab=document.getElementById("table");
+         var _sNum = prompt("请输入学号","");
+         var _sName = prompt("请输入姓名","");
+         if (_sNum==null && _sNum=="" && _sName==null && _sName=="") {
+             alert("请输入正确学号和姓名");
+         }else {
+            var _newtr = document.createElement("tr");
+            var _newsNumtd = document.createElement("td");
+            var _newsNametd = document.createElement("td");
+            var _newatd = document.createElement("td");
+            _newsNumtd.innerHTML=_sNum;
+            _newsNametd.innerHTML=_sName;
+            _newatd.innerHTML='<a href="javascripts:;" onclick="_del(this)" >删除</a>';
+            _newtr.appendChild(_newsNumtd);
+            _newtr.appendChild(_newsNametd);
+            _newtr.appendChild(_newatd);
+            _tab.appendChild(_newtr);
+         }
+     }
+    		
+   	 
+     // 创建删除函数
+     function _del(_this) {
+         var _trdel = _this.parentNode.parentNode;
+         _trdel.parentNode.removeChild(_trdel);
+     }
+
+
+  </script> 
+ </head> 
+ <body> 
+	   <table border="1" width="50%" id="table">
+	   <tr>
+		<th>学号</th>
+		<th>姓名</th>
+		<th>操作</th>
+	   </tr>  
+
+	   <tr>
+		<td>xh001</td>
+		<td>王小明</td>
+		<td><a href="javascript:;" onclick="_del(this)">删除</a></td>   <!--在删除按钮上添加点击事件  -->
+	   </tr>
+
+	   <tr>
+		<td>xh002</td>
+		<td>刘小芳</td>
+		<td><a href="javascript:;" onclick="_del(this)">删除</a></td>   <!--在删除按钮上添加点击事件  -->
+	   </tr>  
+
+	   </table>
+	   <input type="button" value="添加一行" onclick="_addtr()" />   <!--在添加按钮上添加点击事件  -->
+ </body>
 </html>

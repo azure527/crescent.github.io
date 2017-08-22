@@ -287,38 +287,81 @@ mywin.close();
 	文本节点：	向用户展示的内容 如JS DOM CSS等文本
 	属性节点：	元素属性
 属性：
-	nodeName/Type/Value
-	返回给定节点的名字(字符串)/类型(整数)/当前值
-遍历节点数
-	childNodes
+	elementNode.nodeName
+	返回给定节点的名字(字符串) 只读 
+	元素节点的nodeName与标签名相同
+	属性节点的nodeName是属性的名称
+	文本节点的nodeName永远是#text
+	文档节点的nodeName永远是#document
+	
+	elementNode.nodeValue
+	返回给定节点的当前值
+	元素节点的nodeValue是undefined或null
+	文本节点的nodeValue是文本自身
+	属性节点的nodeValue是属性的值
+	
+	elementNode.nodeType
+	返回给定节点的类型(整数)
+	节点类型	返回值
+	元素		1
+	属性		2
+	文本		3
+	注释		8
+	文档		9
+	
+遍历节点树
+	elementNode.childNodes
 	返回由给定元素节点的子节点构成的数组
+		属性：length
+	
 	first/lastChild
 	返回第一个/最后一个子节点
+	first相当于childNode[0]
+	last相当于childNode[elementNode.childNodes.length-1]
+	如果选定的节点没有子节点则返回Null
+				
 	parentNode
-	返回给定节点的父节点
+	定义：返回给定节点的父节点
+	
 	next/previousSlibling
-	返回给定节点的下一个/上一个子节点
+	返回给定节点的下一个/上一个同级节点（兄弟节点）
+	如果没有则Null
+	
+	
 方法：
-	document.createElement(element)
+	document.createElement(tagname)
 	定义：
 		创建一个新的元素节点
+	参数tagname:
+		指定创建的标签名 字符串值
+	返回:
+		新元素节点
 
-	document.createTextNode()
+	document.createTextNode(data)
 	定义：
 		创建一个包含给定文本的新文本节点
-
-	appendChild()
+	参数data:
+		文本 字符串值
+	返回:新节点
+	
+	appendChild(newnode)
 	定义：
-		制定节点的最后一个子节点之后添加一个新的子节点
+		在指定节点的最后一个子节点列表后添加一个新的子节点
+	参数：
+		newnode:要插入的新子节点
 
-	insertBefore()
+	insertBefore(newnode,oldnode);
 	定义：
-		将一个给定节点插入到一个给定元素节点的给定子节点后面
-
-	removeChild()
-	定义：
-		从给定元素中删除一个子节点
-
+		替换某个子节点（对象）
+	参数：
+		newnode用于替换的新对象 所有与之相关的属性内容都将被移除
+		oldnode被替换的对象 必须先被建立
+		
+	
+	nodeObject.removeChild(node)
+	定义:从给定元素中删除一个子节点 要完全删除可给他赋值为空
+	参数node:指定删除的节点
+	返回:如果成功则返回被删除的节点 失败返回null
 	replaceChild()
 	定义：
 		把一个给定父元素里的一个子节点替换为另外一个节点
@@ -329,17 +372,31 @@ mywin.close();
 			因name的值可能不是唯一，所以返回的是元素的数组
 		参数name:
 			元素name属性的值
+			
 	document.getElementByTagName(Tagname)
 		定义：
 			返回带有指定标签名的节点对象的集合
 			其顺序是她们在文档中的顺序 数组
 		参数Tagname:
 			是标签的名称 如p a img等
+			
 	elementNode.getArrtibute(name)
 		定义：
 			通过元素节点的属性名称获取属性的值
 		参数name：
 			elementNode元素中某个属性的名字
+			
+	elementNode.setAttribute(name,value)
+		定义：
+			增加一个指定的属性和其值，或把现有的属性设定为指定的值
+		参数：
+			name要设置的属性名
+			value要设置的属性值
+			
+			
+			
+			
+			
 </rem>
 <br />
 
@@ -696,10 +753,136 @@ clearInterval()
 
 clearTimeout()
 取消setTimeout()的设置
+
+window.history.[属性|方法]
+记录用户曾经浏览过的页面URL
+window可以省略
+	属性：
+		length:返回浏览器历史中URL数量
+	方法：
+		back()加载history列表中前一个URL
+		forward()	后一个RUL
+		go(number)	某个具体页面
+			go(-1)	=back()
+			go(o)	=当前页面
+			go(1)	=forward()
+
+location.[属性|方法]
+首先看看Href的结构：
+href：
+http://www.imooc.com:8080/list.php?courseid=8&chapterid=86#mediaid118
+	protocol:
+	http
+	host:
+	www.imooc.com:8080
+		hostname:
+		www.imooc.com
+		port:
+		8080
+	pathname:
+	list.php
+	serach:
+	courseid=8&chapterid=86
+	hash:
+	mediaid118
+	
+	属性：	
+		hash		设置或返回从#开始的URL（锚）
+		host		设置或返回主机名和当前URL端口号
+		hostname	设置或返回主机名
+		href		设置或返回完整的URL
+		pathname	设置或返回URL路径部分
+		port		设置或返回端口号
+		protocal	设置或返回协议
+		serrch		设置或返回从？开始的URL（查询部分）
+	方法：
+		assigned()	加载新的文档
+		reload()	重新加载当前文档
+		replace()	用新的文档替换当前文档
+	
+Navigator.属性
+包含有关浏览器的信息
+常用于检测浏览器与操作系统的版本
+	属性：
+		appCodeName	浏览器代码名的字符串表示
+		appName		浏览器名称
+		appVersion	浏览器的平台和版本信息
+		platform	运行浏览器的操作系统平台
+		userAgent	客户机发送服务器的user-agent头部值
+
+window.screen.属性
+获取用户屏幕信息
+可省略window
+	availHeight	可以使用的屏幕高度 像素（如减去任务栏等）
+	availWidth	宽度
+	colorDepth	颜色位数 通常32位（每像素的位数）
+	pixelDepth	同上 不支持IE
+	height		高度 像素
+	width		宽度
+</rem>
+<hr />
+
+<h3>浏览器窗口可视区域大小</h3>
+<rem>
+仅为可视区域 不包括工具栏滚动条等
+
+在不同浏览器都实用的 JavaScript 方案：
+var w= document.documentElement.clientWidth
+      || document.body.clientWidth;
+var h= document.documentElement.clientHeight
+      || document.body.clientHeight;
 </rem>
 <br />
 
-<h3></h3>
+<h3>网页尺寸scrollHeight</h3>
 <rem>
+scrollHeight/Width
+获取网页内容高度/宽度
+
+var w=document.documentElement.scrollWidth
+   || document.body.scrollWidth;
+var h=document.documentElement.scrollHeight
+   || document.body.scrollHeight;
+   
+scrollHeight和scrollWidth还可获取Dom元素中内容实际占用的高度和宽度。
 </rem>
 <br />
+
+<h3>网页尺寸offsetHeight</h3>
+<rem>
+offsetHeight/Width
+获取网页内容高度/宽度
+包括滚动条等边线
+会随窗口的显示大小改变
+
+offsetHeight = clientHeight + 滚动条 + 边框。
+
+var w= document.documentElement.offsetWidth
+    || document.body.offsetWidth;
+var h= document.documentElement.offsetHeight
+    || document.body.offsetHeight;
+</rem>
+<br />
+
+<h3>网页卷去的距离与偏移量</h3>
+<rem>
+<img src="../img/study_js_img01.jpg" />
+scrollLeft:设置或获取位于给定对象左边界与窗口中目前可见内容的最左端之间的距离 ，即左边灰色的内容。
+
+scrollTop:设置或获取位于对象最顶端与窗口中可见内容的最顶端之间的距离 ，即上边灰色的内容。
+
+offsetLeft:获取指定对象相对于版面或由 offsetParent 属性指定的父坐标的计算左侧位置 。
+
+offsetTop:获取指定对象相对于版面或由 offsetParent 属性指定的父坐标的计算顶端位置 。
+
+offsetParent：布局中设置postion属性(Relative、Absolute、fixed)的父容器，从最近的父节点开始，一层层向上找，直到HTML的body。
+</rem>
+<br />
+
+
+
+
+
+
+
+
