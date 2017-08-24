@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html charset="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="viewport" content="height=device-height, initial-scale=1, user-scalable=no">
+		<link href="../css/Initialization.css" rel="stylesheet" type="text/css" />
+		<style>
+
+		</style>
+	</head>
+	<body>
+						<h1 class="post_title">JavaScript学习</h1>
+						<p class="post_p">目前学习JavaScript的学习笔记：</p>
+						<hr />
+						<h1>JS学习</h1>
+						<br />
+						<h2>如何使用JavaScript</h2>
+						<br />
+
+						<h3>&lt;script&gt;标签</h3>
+						<rem>
+						&lt;script type="text/javascript"&gt;
+							……
+						&lt;/script&gt;
+						中插入JavaScript代码
+						</rem>
+						<br />
+
+						<h3>应用JS外部文件</h3>
+						<rem>
+						插入
+						&lt;script src="script.js"&gt;&lt;/script&gt;
+						即可执行JavaScript代码
+						js文件也可放在&lt;body&gt;部分
+						在网页读取到该语句时执行
+						注意: javascript作为一种脚本语言可以放在html页面中任何位置
+						但是浏览器解释html时是按先后顺序的
+						所以前面的script就先被执行
+						比如进行页面显示初始化的js必须放在head里面
+						因为初始化都要求提前进行（如给页面body设置css等）
+						而如果是通过事件调用执行的function那么对位置没什么要求的
+						</rem>
+						<hr />
+						<!-- -->
+
+						<h2>语句和符号</h2>
+						<br />
+						<rem>
+						<h3>格式</h3>
+						结尾加上“:”表示一行语句的结束
+						单行注释：在注释内容前加“//”
+						多行注释同CSS 以“/*”开头 以“*/”结束
+						<p></p>
+						</rem>
+						<hr />
+						<!-- -->
+
+						<h2>变量</h2>
+						<rem>
+						使用“var 变量名”来定义变量
+						注意：
+						1.必须使用字母、下划线或$开始
+						2.然后可以使用多个字母、数字、下划线或$
+						3.不能使用JS关键词与JS保留字
+						4.变量要先声明再赋值 可被重复赋值
+						5.JS中区分大小写
+						6.可同时生命多个变量 用“,”隔开
+						var a01;
+						aa1=123;
+						aa1="abc";
+						var a02=123;
+						var a01=123,a02=456;
+						var 数组变量名=new Array([数组长度上限]);
+						var myarray = new Array(66,80,90,77,59)
+						var myarray = [66,80,90,77,59];
+						myarray[0]=66;
+						myarray[1]=80;
+						myarray[2]=90;
+						……
+						Array[0]代表第一个位置
+						myarray.length;
+						获取数组长度
+
+						使用parseInt()函数可解析一个字符串并返回一个整数
+						同parseFloat()返回浮点数
+						……
+						</rem>
+						<hr />
+						<!-- -->
+
+						<h2>条件判断与循环</h2>
+						<br />
+						<h3>判断语句</h3>
+						<rem>
+						if (条件) {
+							条件成立时执行的代码
+						}
+						else {
+						条件不成立时执行的代码
+						}
+						</rem>
+						<br />
+
+						<h3>多种选择（Switch）</h3>
+						<rem>
+						switch (表达式) {
+							case值1：
+							执行代码块1
+							break;
+							……
+							case值n：
+							执行代码块n
+							break;
+							default:
+							与case值都不同的时候执行的代码
+						}
+						注意：如果不加break;则代码从被选择case开始一直执行到最后一个case
+						</rem>
+						<br />
+
+						<h3>重复（for循环）</h3>
+						<rem>
+						for (初始化变量;循环条件;循环迭代) {
+							循环语句
+						}
+						</rem>
+						<br />
+
+						<h3>反复（while）</h3>
+						<rem>
+						while (判断条件) {
+							循环语句
+						}
+						</rem>
+						<br />
+
+						<h3>来回（Do…while）</h3>
+						<rem>
+						do {
+							循环语句
+						}
+						while (判断条件)
+						与while相比 do…while至少执行一次
+						</rem>
+						<br />
+
+						<h3>退出循环（break）</h3>
+						<rem>
+						在循环中使用break即可退出当前循环：例如
+							for (初始条件;判断条件;循环后条件值更新) {
+								if (特殊情况) {
+									break;
+								}
+								循环代码
+							}
+						</rem>
+						<br />
+
+						<h3>继续循环（continue）</h3>
+						<rem>
+						continue跳过本次循环，而整个循环继续执行：例如
+						for () {
+							if (特殊情况) {
+								continue;
+							}
+							循环代码
+						}
+						</rem>
+						<hr />
+						<!-- -->
+
+						<h2>函数</h2>
+						<br />
+						<h3>定义函数</h3>
+						<rem>
+						function 函数名([参数1],[参数2]……) {
+							函数代码;
+							[return 返回变量;]
+						}
+
+						function定义函数的关键字
+						</rem>
+						<br />
+
+						<h3>调用函数</h3>
+						<rem>
+						函数名();
+						即可调用函数
+						或使用点击事件：
+						<imput stype="button" value="点击" onclick="函数名();" />
+						onclick为点击事件
+						</rem>
+						<hr />
+						<!-- -->
+
+						<h2>内置输出方法</h2>
+						<br />
+						<h3>文本输出</h3>
+						<rem>
+						document.write("我是内容")
+						用于向html输出流写内容
+						或使用变量：
+						var a01="我是内容"
+						document.write(a01)
+
+						输出多项内容用“+”链接：
+						document.write(a01+"<br />")
+
+						注意：
+						JS代码中无法判断多个空格 所以只会显示一个空格
+						使用&nbsp;来代替空格
+						或使用CSS样式来解决：
+						document.write("<span style='white-space:pre;'>"+"1   2       3  "+"</span>")
+						white-space:pre;表示空白被浏览器保留
+						</rem>
+						<br />
+
+						<h3>警告</h3>
+						<rem>
+						消息对话框
+						alert(字符串或变量);
+						</rem>
+						<br />
+
+						<h3>确认</h3>
+						<rem>
+						消息对话筐
+						confirm (str);
+						参数：文本
+						返回：Boolern值
+
+						当用户点击确定返回true
+						当用户点击取消返回false
+						</rem>
+						<br />
+
+						<h3>提问</h3>
+						<rem>
+						prompt(str1,str2);
+						询问：包含一个确定按钮、取消按钮和一个文本输入框
+						参数：
+						str1 要显示在对话框中的文本 不可修改
+						str2 文本框中的内容 可以修改
+						返回：
+						点击确定将文本框中的内容作为返回值
+						点取消返回null
+						</rem>
+						<br />
+
+						<h3>打开新窗口</h3>
+						<rem>
+						windows.open([URL],[窗口名称],[参数字符串]);
+						查找一个已经存在或新建的浏览器窗口
+						参数：（[]表示可选参数）
+						URL：			在窗口中要显示网页的网址或路径
+										如果省略这个参数
+										或者它的值是空字符串
+										那么窗口就不显示任何文档
+						窗口名称：		由字母、数字、下划线组成
+										特殊意义的名称：
+										_blank：新窗口显示目标网页
+										_self：当前窗口显示目标网页
+										_top：框架网页中再上部窗口中显示目标网页
+										相同name的窗口只能创建一个
+										name不能包含空格
+						参数字符串：	设置窗口参数 各参数用“,”隔开
+										top=number(px)窗口顶部距离屏幕的距离
+										left=同上左
+										widht=窗口宽度
+										height=高度
+										menubar=yes/no 是否有菜单
+										toolbar=yes/no 是否有工具条
+										scrollbars=yes/no 是否有滚动条
+										status=yes/no 是否有状态栏
+						</rem>
+						<br />
+
+						<h3>关闭窗口</h3>
+						<rem>
+						window.close();
+						关闭本窗口
+						&lt;窗口对象&gt;.close();
+						关闭指定的窗口
+						var mywin=window.open('http://www.imooc.com');
+						//将新打的窗口对象，存储在变量mywin中
+						mywin.close();
+						即可关闭指定窗口
+						</rem>
+						<hr />
+						<!-- -->
+
+						<h2>DOM</h2>
+						<br />
+						<h3>概念</h3>
+						<rem>
+						文档对象模型DOM（Document Object Model）
+						定义：
+							访问和处理HTML文档的标准方法
+							DOM将HTML文档呈现为带有元素、属性和文本的树结构（节点树）
+							元素节点：	html body p等元素都是元素节点 即标签
+							文本节点：	向用户展示的内容 如JS DOM CSS等文本
+							属性节点：	元素属性
+						属性：
+							elementNode.nodeName
+							返回给定节点的名字(字符串) 只读
+							元素节点的nodeName与标签名相同
+							属性节点的nodeName是属性的名称
+							文本节点的nodeName永远是#text
+							文档节点的nodeName永远是#document
+
+							elementNode.nodeValue
+							返回给定节点的当前值
+							元素节点的nodeValue是undefined或null
+							文本节点的nodeValue是文本自身
+							属性节点的nodeValue是属性的值
+
+							elementNode.nodeType
+							返回给定节点的类型(整数)
+							节点类型	返回值
+							元素		1
+							属性		2
+							文本		3
+							注释		8
+							文档		9
+
+						遍历节点树
+							elementNode.childNodes
+							返回由给定元素节点的子节点构成的数组
+								属性：length
+
+							first/lastChild
+							返回第一个/最后一个子节点
+							first相当于childNode[0]
+							last相当于childNode[elementNode.childNodes.length-1]
+							如果选定的节点没有子节点则返回Null
+
+							parentNode
+							定义：返回给定节点的父节点
+
+							next/previousSlibling
+							返回给定节点的下一个/上一个同级节点（兄弟节点）
+							如果没有则Null
+
+
+						方法：
+							document.createElement(tagname)
+							定义：
+								创建一个新的元素节点
+							参数tagname:
+								指定创建的标签名 字符串值
+							返回:
+								新元素节点
+
+							document.createTextNode(data)
+							定义：
+								创建一个包含给定文本的新文本节点
+							参数data:
+								文本 字符串值
+							返回:新节点
+
+							appendChild(newnode)
+							定义：
+								在指定节点的最后一个子节点列表后添加一个新的子节点
+							参数：
+								newnode:要插入的新子节点
+
+							insertBefore(newnode,oldnode);
+							定义：
+								替换某个子节点（对象）
+							参数：
+								newnode用于替换的新对象 所有与之相关的属性内容都将被移除
+								oldnode被替换的对象 必须先被建立
+
+
+							nodeObject.removeChild(node)
+							定义:从给定元素中删除一个子节点 要完全删除可给他赋值为空
+							参数node:指定删除的节点
+							返回:如果成功则返回被删除的节点 失败返回null
+							replaceChild()
+							定义：
+								把一个给定父元素里的一个子节点替换为另外一个节点
+
+							document.getElementByName(name)
+								定义：
+									返回带有指定名称的节点对象的集合
+									因name的值可能不是唯一，所以返回的是元素的数组
+								参数name:
+									元素name属性的值
+
+							document.getElementByTagName(Tagname)
+								定义：
+									返回带有指定标签名的节点对象的集合
+									其顺序是她们在文档中的顺序 数组
+								参数Tagname:
+									是标签的名称 如p a img等
+
+							elementNode.getArrtibute(name)
+								定义：
+									通过元素节点的属性名称获取属性的值
+								参数name：
+									elementNode元素中某个属性的名字
+
+							elementNode.setAttribute(name,value)
+								定义：
+									增加一个指定的属性和其值，或把现有的属性设定为指定的值
+								参数：
+									name要设置的属性名
+									value要设置的属性值
+
+
+
+
+
+						</rem>
+						<br />
+
+						<h3>提取或设定元素的值</h3>
+						<rem>
+						因标签的id是唯一的
+						所以在网页中 通过id找到标签并进行操作
+						docement.getElementById("id")
+						获取元素的值设置和获取方法为：
+						赋值
+						document.getElementById("id").value=值;
+						取值
+						var 变量=document.getElementById("id").value;
+						</rem>
+						<br />
+
+						<h3>innerHTML属性</h3>
+						<rem>
+						Object.innerHTML
+						用于获取或替换HTML元素的内容
+						注意:
+						Object是获取的元素对象，通过document.getElementById("id")获取
+						区分大小写
+						</rem>
+						<br />
+
+						<h3>改变HTML样式</h3>
+						<rem>
+						Object.style.property="new style";
+						属性(property)
+						</rem>
+						<br />
+
+						<h3>显示和隐藏（display属性）</h3>
+						<rem>
+						Object.style.display=value;
+						value取值：
+						none 隐藏
+						block 显示
+						</rem>
+						<br />
+
+						<h3>控制类名（className属性）</h3>
+						<rem>
+						object.className=classname
+						指定或改变一个元素的类名
+						</rem>
+						<hr />
+						<!-- -->
+
+						<h2>事件</h2>
+						<br />
+						<h3>所有元素都可用的事件</h3>
+						<rem>
+						onclick		鼠标单击
+						onmouseover	鼠标经过
+						onmouseout	鼠标移开
+						onchange	文本框内容改变后并失焦时
+						onselect	文本框中任意内容被选中
+						onfocus		光标聚集
+						onblur		光标离开
+						onload		网页加载完成后
+						onunload	关闭网页、刷新等退出网页时
+						写在标签中：
+						<input type="button" value="按钮" onclick="函数名()" />
+						</rem>
+						<hr />
+						<!-- -->
+
+						<h2>对象</h2>
+						<br />
+						<h3>对象定义</h3>
+						<rem>
+						js中所有事物都是对象
+						每个对象都带有属性和方法
+						属性：反应对象的某些性质如字符串的长度、图片的长宽等
+						方法：能够在对象上执行的动作，如表单的提交、时间的获取等
+						使用对象前先定义：
+						var objectName = new Array();
+						new即关键字定义对象
+
+						访问对象的属性：
+						objectName.propertyName
+
+						访问对象的方法：
+						objectName.methodName()
+						</rem>
+						<br />
+
+						<h3>日期对象（Date）</h3>
+						<rem>
+						定义：
+						var 变量名 = new Date();
+						初始值：当前时间（系统时间）
+						定义初始值：
+						var _date = new Date(2012,10,1);
+						var _date = new Date("Oct 1,2012")
+						最好使用下面的method来严格定义时间：
+						常用方法：
+						get/setDate()		返回/设置日期数
+						get/setFullYear()	返回/设置年份用四位数表示
+						get/setYear()		返回/设置年份
+						get/setMonth()		返回/设置月份 0=1月……
+						get/setHours()		返回/设置小时 24小时制式
+						get/setMinutes()	返回/设置分钟数
+						get/setSeconds()	返回/设置秒钟数
+						get/setTime()		返回/设置时间 计算自从1970年1月1日0时到日期对象的时间长度 单位毫秒
+						get/setDay()		返回/设置星期
+						0=周日
+						输出时间：
+						document.write(_date)
+						Thu Mar 06 2014 10:57:47 GMT+0800
+						星期、月、日、年、时、分、秒、时区
+						不同浏览器格式有差异
+						</rem>
+						<br />
+
+						<h3>字符串对象（String）</h3>
+						<rem>
+						访问字符串对象的length：
+						stringObject.length;
+
+						访问字符串对象的方法：
+						var _str="Hello world!";
+						var _num=_str.toUpperCase();
+
+						toUpperCase()方法将小写字母转换为大写
+
+						toLowerCase()将大写字母转换为小谢
+
+						charAt([index])返回指定位置的字符
+							参数index：
+								位置即字符在字符串中的下标
+								第一个字符的下标=0
+								最后一个字符的下标=string.length-1
+								如果参数不在0与string.length-1之间
+								则返回一个空字符串
+
+						indexOf(substring[,startpos])返回某个指定字符串值在字符中首次出现的位置 区分大小写 如果没有结果则返回-1
+							参数：substring
+								规定需检索的字符串值
+							参数：startpos
+								规定开始减速ode位置 同index 省略则从0开始
+
+						split(separator[,limit])将字符串分割为字符串数组并返回
+							参数separator：
+								指定分割的位置 设为""则把每个字符都分割
+							参数limit:
+								返回的数组的长度
+								多余部分删除
+								如果不设定则为不限长度
+
+						substring(startPos[,stopPos])提取字符串 即从startPos位置开始到stop-1的所有字符
+						如果startPos=stopPos则返回空字符串
+						如果startPos>stopPos则交换这两个参数
+							参数startPos:
+								开始位置 非负整数
+							参数stopPos：
+								结束位置 非负整数
+								如果省略则返回的子串会一直到字符串的结尾
+
+						substr(startPos [,length])提取指定数目的字符
+							参数startPos：
+								其实位置 整数
+								若为负数则从尾部开始：-1是最后一个字符 -2是倒数第二个字符 ……
+								若为负数且绝对值大于字符串长度 则startPos为0
+							参数length：
+								提取的长度 如果省略则返回从startPos到字符串结尾的所有字符
+						</rem>
+						<br />
+
+						<h3>数学计算（Math对象）</h3>
+						<rem>
+						属性
+						E返回常量 即自然对数的底数 约等于2.718
+						LN2返回2的自然对数 约等于0.693
+						LN10返回10的自然对数 约等于2.302
+						LOG2E返回2为底的e的对数 约等于1.442
+						LOG10E返回10为底的e的对数 约等于0.434
+						PI返回圆周率 约等于3.14159
+						SQRT1_2返回2的平方根的倒数 约等于0.707
+						SQRT2 返回2的平方根 约等于1.414
+
+						对象方法
+						abs(x)		返回绝对值
+						acos(x)		返回反余弦
+						asin(x)		返回反正弦
+						atan(x)		返回反正切
+						atan(y,x)	返回由x轴到点(x,y)的角度 以弧度为单位
+						ceil(x)		进行上取整
+						cos(x)		返回余弦
+						floor(x)	进行下去整
+						log(x)		返回x的自然对数 底为e
+						max(x,y)	取x和y中的最高值
+						min(x,y)	取x和y中的最低值
+						pow(x,y)	x的y次幂
+						random()	0~1间去随机数
+						round(x)	四舍五入为整数
+						sin(x)		返回正弦
+						sqrt(x)		返回平方根
+						tan(x)		返回正切
+						toSource()	返回对象的源代码
+						valueOf()	返回Math对象的原始值
+						</rem>
+						<br />
+
+						<h3>数组对象（Array）</h3>
+						<rem>
+						方法：
+						concat(array1[,array2,…])
+						链接多个数组 返回结果
+
+						join([separator])
+						把所有元素放入一个字符串 通过指定分隔符进行分隔
+							参数separator：
+								分隔符 若省略则用“,”作为分隔符
+
+						pop()
+						删除并返回数组的最后一个元素
+
+						push()
+						向数组末尾添加多个元素 返回新的长度
+
+						reverse()
+						颠倒数组中元素的顺序
+						会改变原来的数组
+						且不会创建新的数组
+
+						shift()
+						删除并返回数组的第一个元素
+
+						slice(start [,end])
+						从某个已有的数组返回选定的元素
+						不会修改数组 而是返回一个子数组
+						与String.slice()相似
+							参数start：
+								选取位置
+								负数为尾部
+							参数end：
+								结束位置（不被包含 即-1）
+								若不设置则到所有元素结束
+								负数为尾部
+
+						sort([方法函数])
+						按照一定顺序排序
+						参数方法函数：
+							指定排序方法
+							留空则按unicode码顺序
+						例：
+						_arr.sort(sortMethod);
+						该函数要比较两个值
+						然后返回一个用于说明这两个值的相对顺序的数字
+						比较函数应该具有两个参数 a 和 b
+						其返回值如下：
+						若返回值&lt;=-1则表示 A 在排序后的序列中出现在 B 之前
+						若返回值&gt;-1 && <1则表示 A 和 B具有相同的排序顺序
+						若返回值&gt;=1则表示 A 在排序后的序列中出现在 B 之后
+							function sortNum(a,b) {
+								return a - b;
+								//升序，如降序，把“a - b”该成“b - a”
+							}
+							var myarr = new Array("80","16","50","6","100","1");
+							document.write(myarr + "<br>");
+							document.write(myarr.sort(sortNum));
+						运行结果：
+						80,16,50,6,100,1
+						1,6,16,50,80,100
+
+						splice()
+						删除元素 并添加新元素
+
+						toSource()
+						返回对象的源代码
+
+						toString()
+						转换为字符串 返回结果
+
+						toLocalseString()
+						转换为本地数组 返回结果
+
+						unshift()
+						向数组开头添加多个元素 返回新的长度
+
+						valueOf()
+						返回数组对象的原始值
+
+						等
+						</rem>
+						<hr />
+						<!---->
+
+						<h2>window对象</h2>
+						<br />
+						<rem>
+						alert()
+						显示一段消息和一个确认按钮的警告框
+
+						prompt()
+						显示可提示用户输入的对话框
+
+						confirm()
+						显示带有一段消息以及确认按钮和取消按钮的对话框
+
+						open()
+						打开一个心得浏览器窗口或查找一个已命名的窗口
+
+						close()
+						关闭浏览器窗口
+
+						print()
+						打印当前窗口的内容
+
+						focus()
+						把键盘焦点给予一个窗口
+
+						blur()
+						把键盘焦点从顶层窗口移开
+
+						moveBy()
+						可相对窗口的当前坐标把他移动指定的像素
+
+						moveTo()
+						吧窗口的左上角移动到一个指定的坐标
+
+						resizeBy()
+						按照指定的像素调整窗口大小
+
+						resizeTo()
+						吧窗口大小调整到指定的宽度和高度
+
+						scrollBy()
+						按照指定的像素值来滚动内容
+
+						scrollTo()
+						把内容滚动到指定的坐标
+
+						<!--计时器-->
+						setInterval(代码,交互时间)
+						每隔指定的时间执行代码
+							参数 代码：
+								要调用的函数或者执行的代码串
+							参数 交互时间：
+								周期性执行或调用表达式之间的时间间隔 毫秒
+							返回值：
+								可以传递给clearInterval()从而取消的值
+
+						setTimeout(id_of_setInterval)
+						再指定的延迟时间后执行代码
+							参数id_of_setInterval:
+								由setInterval()返回的ID值
+
+						clearInterval()
+						取消setinterval()的设置
+
+						clearTimeout()
+						取消setTimeout()的设置
+
+						window.history.[属性|方法]
+						记录用户曾经浏览过的页面URL
+						window可以省略
+							属性：
+								length:返回浏览器历史中URL数量
+							方法：
+								back()加载history列表中前一个URL
+								forward()	后一个RUL
+								go(number)	某个具体页面
+									go(-1)	=back()
+									go(o)	=当前页面
+									go(1)	=forward()
+
+						location.[属性|方法]
+						首先看看Href的结构：
+						href：
+						http://www.imooc.com:8080/list.php?courseid=8&chapterid=86#mediaid118
+							protocol:
+							http
+							host:
+							www.imooc.com:8080
+								hostname:
+								www.imooc.com
+								port:
+								8080
+							pathname:
+							list.php
+							serach:
+							courseid=8&chapterid=86
+							hash:
+							mediaid118
+
+							属性：
+								hash		设置或返回从#开始的URL（锚）
+								host		设置或返回主机名和当前URL端口号
+								hostname	设置或返回主机名
+								href		设置或返回完整的URL
+								pathname	设置或返回URL路径部分
+								port		设置或返回端口号
+								protocal	设置或返回协议
+								serrch		设置或返回从？开始的URL（查询部分）
+							方法：
+								assigned()	加载新的文档
+								reload()	重新加载当前文档
+								replace()	用新的文档替换当前文档
+
+						Navigator.属性
+						包含有关浏览器的信息
+						常用于检测浏览器与操作系统的版本
+							属性：
+								appCodeName	浏览器代码名的字符串表示
+								appName		浏览器名称
+								appVersion	浏览器的平台和版本信息
+								platform	运行浏览器的操作系统平台
+								userAgent	客户机发送服务器的user-agent头部值
+
+						window.screen.属性
+						获取用户屏幕信息
+						可省略window
+							availHeight	可以使用的屏幕高度 像素（如减去任务栏等）
+							availWidth	宽度
+							colorDepth	颜色位数 通常32位（每像素的位数）
+							pixelDepth	同上 不支持IE
+							height		高度 像素
+							width		宽度
+						</rem>
+						<hr />
+
+						<h3>浏览器窗口可视区域大小</h3>
+						<rem>
+						仅为可视区域 不包括工具栏滚动条等
+
+						在不同浏览器都实用的 JavaScript 方案：
+						var w= document.documentElement.clientWidth
+							  || document.body.clientWidth;
+						var h= document.documentElement.clientHeight
+							  || document.body.clientHeight;
+						</rem>
+						<br />
+
+						<h3>网页尺寸scrollHeight</h3>
+						<rem>
+						scrollHeight/Width
+						获取网页内容高度/宽度
+
+						var w=document.documentElement.scrollWidth
+						   || document.body.scrollWidth;
+						var h=document.documentElement.scrollHeight
+						   || document.body.scrollHeight;
+
+						scrollHeight和scrollWidth还可获取Dom元素中内容实际占用的高度和宽度。
+						</rem>
+						<br />
+
+						<h3>网页尺寸offsetHeight</h3>
+						<rem>
+						offsetHeight/Width
+						获取网页内容高度/宽度
+						包括滚动条等边线
+						会随窗口的显示大小改变
+
+						offsetHeight = clientHeight + 滚动条 + 边框。
+
+						var w= document.documentElement.offsetWidth
+							|| document.body.offsetWidth;
+						var h= document.documentElement.offsetHeight
+							|| document.body.offsetHeight;
+						</rem>
+						<br />
+
+						<h3>网页卷去的距离与偏移量</h3>
+						<rem>
+						<img src="../img/study_js_img01.jpg" />
+						scrollLeft:设置或获取位于给定对象左边界与窗口中目前可见内容的最左端之间的距离 ，即左边灰色的内容。
+
+						scrollTop:设置或获取位于对象最顶端与窗口中可见内容的最顶端之间的距离 ，即上边灰色的内容。
+
+						offsetLeft:获取指定对象相对于版面或由 offsetParent 属性指定的父坐标的计算左侧位置 。
+
+						offsetTop:获取指定对象相对于版面或由 offsetParent 属性指定的父坐标的计算顶端位置 。
+
+						offsetParent：布局中设置postion属性(Relative、Absolute、fixed)的父容器，从最近的父节点开始，一层层向上找，直到HTML的body。
+						</rem>
+						<br />
+	</body>
+</html>

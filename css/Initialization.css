@@ -1,12 +1,12 @@
 * {
-	font-family: consolas, 微软雅黑, simsun,;
+	font-family: "consolas", "微软雅黑", "simsun";
 	margin:0;
 	padding:0;
-	line-height: 1.65;
 	-webkit-box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	box-sizing:border-box;
 }
+
 html {
 	line-height:1.65;
 	font-size:16px;
