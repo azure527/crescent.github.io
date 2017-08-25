@@ -5,204 +5,26 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<meta name="viewport" content="height=device-height, initial-scale=1, user-scalable=no">
 		<link href="../css/Initialization.css" rel="stylesheet" type="text/css" />
-		<!-- 初始化样式 -->
-		<title>Blog · 以前是狼</title>
-		<style type="text/css">
-			/* 下面是左边页面的样式 */
-
-			.sidebar {
-				position:fixed;
-				top:0;
-				left:0;
-				bottom:0;
-				height:100vh;
-				padding:36px 18px;
-				width:288px;
-				background-color:#000;
-				background-image:url(../img/bg_sidebar_study.jpg);
-				background-size:cover;
-				background-position:center center;
-			}
-			/* 确定header导航元素的位置和大小，并贴上背景图 */
-			
-			@media (max-width:36rem) {
-				.sidebar {
-					margin:0;
-					border:0;
-					padding:0;
-					height:0;
-					width:0;
-					overflow:hidden;
-				}
-			}
-			/* 当窗口宽度小于某个值 隐藏左侧边框 */
-			
-			.sidebar::before {
-				content:"";
-				position:absolute;
-				top:0;
-				left:0;
-				bottom:0;
-				right:0;
-				z-index:-1;
-				background:-moz-linear-gradient(bottom, rgba(32,32,32,0) 0%, rgba(32,32,32,0.5) 100%);
-				background:-webkit-linear-gradient(bottom, rgba(32,32,32,0) 0%, rgba(32,32,32,0.5) 100%);
-				background:linear-gradient(top bottom, rgba(32,32,32,1) 0%, rgba(32,32,32,0.5) 100%);
-			}
-			/* 最底层的伪元素 用于深色渐变 */
-			
-			.sidebar_title {
-				margin:36px 0 27px 0;
-				padding:0 18px;
-				z-index:1;
-			}
-			/* 标题文字位置 */
-			
-			.sidebar_title_link {
-				padding:0 0 2.7px 0;
-				color:white;
-			}
-			/* 标题文字样式 */
-			
-			.sidebar p {
-				display:inline-block;
-				margin-bottom:27px;
-				padding:16px;
-				font-family:"Comic Sans MS";
-				font-size:1.5rem;
-				color:white;;
-			}
-			/* 说明文档样式 */
-			
-			.sidebar nav {
-				margin:auto 0 10px 16px;
-				width:226px;
-			}
-			/* 导航栏样式 */
-			
-			.sidebar_title_link::selection,.sidebar p::selection,.sidebar_link::selection {
-				background:#cfc;
-				color:white;
-			} 
-			/* 选中链接文字和说明文档时的样式 */
-			
-			.sidebar_title_link:hover {
-				border-bottom:3px white solid;
-			}
-			/* 为超链接添加鼠标移上去的样式 */
-			
-			.sidebar_link:hover
-			 {
-				border-bottom:3px #ccc solid;
-			}
-			/* 鼠标移动到导航链接时显示的样式 */
-			
-			.sidebar ul {
-				border-bottom:1px #ccc solid;
-			}
-			.sidebar li {
-				height:43px;
-			}
-			/* 列表的样式 */
-			
-			.sidebar_link {
-				display:block;
-				border-top:1px #ccc solid;
-				padding:3px 0;
-				width:226px;
-				line-height:1.75;
-				font-size: 20px;
-				color:white;
-				font-weight:bold;
-			}
-			/* 导航链接的样式 */、
-			
-		</style>
-		<style type="text/css">
-		/* 下面是右边页面的样式 */
-			
-			@media (max-width:36rem) {
-				main {
-					margin-left:1rem;
-				}
-			}
-			
-			@media (min-width:36rem) {
-				main {
-					margin-left:18rem;
-				}
-			}
-			
-			@media (min-width: 48em) {
-				main {
-					max-width: 38rem;
-					margin-left: 20rem;
-					margin-right: 2rem;
-					border-left: none;
-				}
-			}
-			
-			@media (min-width: 64em) {
-				main {
-					margin-left: 22rem;
-					margin-right: 4rem;
-				}
-			}
-			
-			main {
-				padding-top: 4rem;
-				padding-bottom: 4rem;
-				margin-bottom: 4em;
-				display: block;
-				padding-left: 1rem;
-				padding-right: 1rem;
-				position:relative;
-				overflow-x: hidden;
+		<style>
+			body::-webkit-scrollbar {
+				width: 0;
 			}
 			
 			.post_title {
-				color:#669;
+				margin-bottom:0.5rem;
+				color:#66f;
 			}
 			
 			.post_p {
-				line-height:2;
-				color:#999;
-				background-color:#f9f9f9;
+				padding-top:0.5rem;
+				padding-bottom:0.5rem;
+				color:#777;
+				background-color:#eee;
 			}
-			
-			.post_p span{
-				font-weight:bold;
-				color:#33f;
-			}
-			
-			.post li {
-				margin-bottom:1rem;
-			}
-			
-			.post_a {
-				position:relative;
-				padding-bottom:0.3rem;
-				border-bottom:3px solid transparent;
-				text-decoration: none;
-				color:#693;
-			}
-			
-			.post_a small {
-				color:#999;
-			}
-			
-			.post_a:hover {
-				border-bottom: 3px #693 solid;
-			}
-			
-			
-			
-			
 		</style>
 	</head>
 	<body>
-		<main>
-				<article class="post">
+		<article class="post">
 					<h1 class="post_title">MarkDown学习</h1>
 					<p class="post_p">目前学习MD的学习笔记：</p>
 					<hr />
@@ -259,29 +81,5 @@ class HelloWrold{
 ~~hahahaha~~	
 		</xmp>
 		<!--<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>-->
-				</article>
-		</main>
-		
-		<header class="sidebar">
-			<h1 class="sidebar_title">
-				<a class="sidebar_title_link"href="../index.html">以前是狼</a>
-			</h1>
-			<p>Let nature take its right course.</fomt></p>
-			<nav>
-				<ul>
-					<li>
-						<a class="sidebar_link" href="./study_index.html" >学习笔记</a>
-					</li>
-				
-					<li>
-						<a class="sidebar_link" href="">作品展示 施工中……</a>
-					</li>
-				
-					<li>
-						<a class="sidebar_link" href="">施工中……</a>
-					</li>
-				</ul>
-			</nav>
-		</header>
 	</body>
 </html>

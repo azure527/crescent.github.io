@@ -7,12 +7,17 @@
 		<link href="./css/Initialization.css" rel="stylesheet" type="text/css" />
 		<!-- 初始化样式 -->
 		<style type="text/css">
+			body::-webkit-scrollbar {
+				width: 0;
+			}
+			
 			.bar {
 				position:absolute;
 				top:0;
 				right:0;
 				bottom:0;
 				left:0;
+				width:19rem;
 				background:-moz-linear-gradient(bottom, rgba(32,32,32,0) 0%, rgba(32,32,32,0.5) 100%);
 				background:-webkit-linear-gradient(bottom, rgba(32,32,32,0) 0%, rgba(32,32,32,0.5) 100%);
 				background:linear-gradient(top bottom, rgba(32,32,32,1) 0%, rgba(32,32,32,0.5) 100%);
@@ -22,7 +27,8 @@
 			}
 			
 			.bar .sidebar_title {
-				display:inline;
+				display:inline-block;
+				margin-bottom:1rem;
 				padding-bottom:0.5rem;
 			}
 			
@@ -32,8 +38,11 @@
 			}
 			
 			.bar .sidebar_title .sidebar_title_link:hover {
-				border-bottom:3px #cfc solid;
-				color:#cfc;
+				border-bottom:3px #fff solid;
+			}
+			
+			.bar div{
+				width:200px;
 			}
 			
 			.bar ul {
@@ -41,22 +50,20 @@
 			}
 			
 			.bar li {
-				height:2rem;
+				height:3rem;
 			}
 			
 			.bar ul li a {
 				display:block;
 				position:relative;
-				margin:1rem 0;
 				border-bottom:1px #ccc solid;
-				padding:3px 0;
+				padding:9px 0;
 				color:white;
 				font-weight:bold;
 			}
 			
 			.bar ul li a:hover {
-				border-bottom:3px #cfc solid;
-				color:#cfc;
+				border-bottom:3px #fff solid;
 			}
 			
 			.sidebar_title_link::selection,.bar p::selection,.sidebar_link::selection {
@@ -69,13 +76,13 @@
 	<body>
 		<div class="bar">
 			<h1 class="sidebar_title">
-				<a class="sidebar_title_link"href="./test4.html">以前是狼</a>
+				<a class="sidebar_title_link" target="_main" href="./main.html">以前是狼</a>
 			</h1>
 			<p>Let nature take its right course.</fomt></p>
 			<div>
 				<ul>
 					<li>
-						<a class="sidebar_link" href="" >学习笔记</a>
+						<a class="sidebar_link" target="_main" href="./StudyNote/study_index.html" >学习笔记</a>
 						</li>
 					<li>
 						<a class="sidebar_link" href="">作品展示 施工中……</a>
