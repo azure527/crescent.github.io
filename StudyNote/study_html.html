@@ -4,123 +4,193 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<meta name="viewport" content="height=device-height, initial-scale=1, user-scalable=no">
-		<link href="./css/Initialization.css" rel="stylesheet" type="text/css" />
-		<style>
-			body {
-				right:0;
+		<link href="../css/Initialization.css" rel="stylesheet" type="text/css" />
+		<!-- 初始化样式 -->
+		<title>Blog · 以前是狼</title>
+		<!-- 导航框架样式 -->
+		<style type="text/css">
+			.sidebar {
+				display:inline-block;
+				position:fixed;
+				top:0;
+				bottom:0;
+				left:0;
+				height:100vh;
+				width:19rem;
+				background-image:url("../img/bg_sidebar_index.jpg");
+				background-size:cover;
+				background-position:center center;
+				z-index:2;
+			}
+			
+			@media (max-width:600px) {
+				.sidebar {
+					left:-18.5rem;
+				}
+			}
+		</style>
+		<!-- 内容栏样式 -->
+		<style type="text/css">
+			main {
+				position:relative;
+				overflow-x:hidden;
+				margin-left:22rem;
+				margin-right:4rem;
+				padding-top:2rem;
+				z-index:1;
 			}
 			
 			.post_title {
-				margin-top:2rem;
-				margin-bottom:0.5rem;
 				color:#66f;
 			}
 			
 			.post_p {
-				padding-top:0.5rem;
-				padding-bottom:0.5rem;
-				color:#777;
-				background-color:#eee;
+				margin-top:1rem;
+				background-color:#ddd;
+				color:#369;
+			}
+			
+			@media (max-width:1000px) {
+				main {
+					max-width:24rem;
+				}
+			}
+			
+			@media (max-width:850px) {
+				main {
+					max-width:14rem;
+				}
+			}
+			
+			@media (max-width:600px) {
+				main {
+					margin-left:4rem;
+				}
 			}
 		</style>
+		<!-- 导航显示按钮样式 -->
+		<style type="text/css">
+			.showbar {
+				display:inline-block;
+				position:fixed;
+				top:1rem;
+				left:1rem;
+				color:#369;
+			}
+		</style>
+		<!-- 脚本 -->
+		<script type="text/javascript">
+			function showbar() {
+				var sidebar = document.getElementById("sidebar")
+				var showbar = document.getElementById("showbar")
+				sidebar.style.left="0";
+				showbar.style.display=none;
+			}
+		</script>
 	</head>
 	<body>
-		<h1 class="post_title">HTML学习</h1>
-		<p class="post_p">目前学习html的学习笔记：</p>
-		<hr />
-		<p>&lt;p&gt;标签 = 一个段落</p>
-		<p><em>&lt;em>标签 斜体</em></p>
-		<p><strong>&lt;strong>标签 粗体</strong></p>
-		<p><span>&lt;span>标签是没有语义的，它的作用就是为了设置单独的样式用的。</span></p>
-		<hr />
-		<p>&lt;q&gt;标签 <q>引用简短文本 不需要加双引号 会被自动加双引号</q></p>
-		<br />
-		<p>&lt;blockquote>标签 <blockquote>引用长文本 会被自动加双引号 切会被缩进和换行处理</blockquote></p>
-		<hr />
-		<p>这段文字<br />中间用了<br />&lt;br />标签<br />用于换行 比&lt;br>标签更规范</p>
-		<br />
-		<code>&lt;hr /&gt;标签 用于添加水平分隔横线</code>
-		<br />
-		<hr />
-		<p>这是一个<address>地址</address> 用 &lt;address&gt;标签 斜体且被换行 可以css样式进行更改</p>
-		<hr />
-		<code>&lt;code&gt;标签 代表代码</p>
-		<br />
-		<pre>
-&lt;pre>标签 代码段 其中的空格和
-换行都能保存下来
-		</pre>
-		<hr />
-		<ul>
-			<li>ul-li</li>
-			<li>无序列表</li>
-		</ul>
-		<ol>
-			<li>ol-li</li>
-			<li>有序列表</li>
-		</ol>
-		<div id="div">
-		<p>div标签 用于划分不同的独立板块 并用 id属性 来添加标记</p>
-		</div>
-		<hr />
-		<h3>超链接</h3>
-		<pre>&lt;a href="目标网址"  title="鼠标滑过显示的文本"&gt;链接显示的文本&lt;/a&gt;</pre>
-		<br /><br />
-		<code>&lt;a href="目标网址"&nbsp;<strong>target="_blank"</strong>&gt;新窗口超链接&lt;/a&gt;</code>
-		<p>a标签 中加 target="_blank" = 新窗口超链接 </p>
-		<hr />
-		<p><=&lt; 空格=&nbsp; >=&gt;</p>
-		<hr />
-		<code>&lt;img src="图片地址" alt="下载失败时的替换文本" title = "提示文本"&gt;支持GIF，PNG，JPEG</code>
-		<hr />
-		<pre align="left" class="code">&lt;form   method="传送方式"   action="服务器文件"&gt;</pre>
-		<p>HTML表单(form) 用于和网站交互</p>
-		<p>1、所有表单控件（文本框、文本域、按钮、单选框、复选框等）都必须放在 &lt;form&gt;&lt;/form&gt; 标签之间（否则用户输入的信息可提交不到服务器上哦！）。</p>
-		<br />
-		<h3>文本输入和密码输入</h3>
-		<pre>
-&lt;form&gt;
-&lt;input type="text/password" name="名称" value="文本" /&gt;
-&lt;/form&gt;
-		</pre>
-		<h3>文本域 支持多行文本输入</h3>
-		<pre>
-&lt;textarea rows="行数" cols="列数"&gt;文本&lt;/textarea&gt;
-		</pre>
-		<h3>单选框和复选框</h3>
-		<pre>
-&lt;input   type="radio/checkbox"   value="值"    name="名称"   checked="checked"/>
-1、type:
-	当 type="radio" 时，控件为单选框
-	当 type="checkbox" 时，控件为复选框
-2、value：提交数据到服务器的值（后台程序PHP使用）
-3、name：为控件命名，以备后台程序 ASP、PHP 使用，同一组的单选按钮，name 取值一定要一致。
-4、checked：当设置 checked="checked" 时，该选项被默认选中
-		</pre>
-		<h3>下拉列表框</h3>
-		<pre>
-&lt;select&gt;
-&lt;option value:“提交值” select="select"&gt;选项&lt;/option&gt;
-这里select="select"代表该项被默认选中
-&lt;/select&gt;
-		</pre>
-		<h3>提交按钮</h3>
-		<pre>
-&lt;input type="submit" value="按钮上的文本"&gt;
-仅当type="submit"提交按钮才有作用
-		</pre>
-		<h3>重置按钮</h3>
-		<pre>
-&lt;input type="reset" value="按钮上的文本"&gt;
-重置整个&lt;form&gt;…&lt;form&gt;内的所有框
-		</pre>
-		<h3>label</h3>
-		<pre>
-当用户单击选中该label标签时，
-浏览器就会自动将焦点转到和标签相关的表单控件上
-（就自动选中和该label标签相关连的表单控件上）。
-&lt;label for="控件id名称"&gt;
-		</pre>
+		<!-- 导航显示按钮 -->
+		<a id="showbar" class="showbar" href="javascript:;" onclick="showbar()">☰</a>
+		<!-- 导航框架 -->
+		<iframe id="sidebar" class="sidebar" src="../sidebar.html">此浏览器不支持iframe框架</iframe>
+		<!-- 内容 -->
+		<main>
+			<h1 class="post_title">HTML学习</h1>
+			<p class="post_p">目前学习html的学习笔记：</p>
+			<hr />
+			<p>&lt;p&gt;标签 = 一个段落</p>
+			<p><em>&lt;em>标签 斜体</em></p>
+			<p><strong>&lt;strong>标签 粗体</strong></p>
+			<p><span>&lt;span>标签是没有语义的，它的作用就是为了设置单独的样式用的。</span></p>
+			<hr />
+			<p>&lt;q&gt;标签 <q>引用简短文本 不需要加双引号 会被自动加双引号</q></p>
+			<br />
+			<p>&lt;blockquote>标签 <blockquote>引用长文本 会被自动加双引号 切会被缩进和换行处理</blockquote></p>
+			<hr />
+			<p>这段文字<br />中间用了<br />&lt;br />标签<br />用于换行 比&lt;br>标签更规范</p>
+			<br />
+			<code>&lt;hr /&gt;标签 用于添加水平分隔横线</code>
+			<br />
+			<hr />
+			<p>这是一个<address>地址</address> 用 &lt;address&gt;标签 斜体且被换行 可以css样式进行更改</p>
+			<hr />
+			<code>&lt;code&gt;标签 代表代码</p>
+			<br />
+			<pre>
+	&lt;pre>标签 代码段 其中的空格和
+	换行都能保存下来
+			</pre>
+			<hr />
+			<ul>
+				<li>ul-li</li>
+				<li>无序列表</li>
+			</ul>
+			<ol>
+				<li>ol-li</li>
+				<li>有序列表</li>
+			</ol>
+			<div id="div">
+			<p>div标签 用于划分不同的独立板块 并用 id属性 来添加标记</p>
+			</div>
+			<hr />
+			<h3>超链接</h3>
+			<pre>&lt;a href="目标网址"  title="鼠标滑过显示的文本"&gt;链接显示的文本&lt;/a&gt;</pre>
+			<br /><br />
+			<code>&lt;a href="目标网址"&nbsp;<strong>target="_blank"</strong>&gt;新窗口超链接&lt;/a&gt;</code>
+			<p>a标签 中加 target="_blank" = 新窗口超链接 </p>
+			<hr />
+			<p><=&lt; 空格=&nbsp; >=&gt;</p>
+			<hr />
+			<code>&lt;img src="图片地址" alt="下载失败时的替换文本" title = "提示文本"&gt;支持GIF，PNG，JPEG</code>
+			<hr />
+			<pre align="left" class="code">&lt;form   method="传送方式"   action="服务器文件"&gt;</pre>
+			<p>HTML表单(form) 用于和网站交互</p>
+			<p>1、所有表单控件（文本框、文本域、按钮、单选框、复选框等）都必须放在 &lt;form&gt;&lt;/form&gt; 标签之间（否则用户输入的信息可提交不到服务器上哦！）。</p>
+			<br />
+			<h3>文本输入和密码输入</h3>
+			<pre>
+	&lt;form&gt;
+	&lt;input type="text/password" name="名称" value="文本" /&gt;
+	&lt;/form&gt;
+			</pre>
+			<h3>文本域 支持多行文本输入</h3>
+			<pre>
+	&lt;textarea rows="行数" cols="列数"&gt;文本&lt;/textarea&gt;
+			</pre>
+			<h3>单选框和复选框</h3>
+			<pre>
+	&lt;input   type="radio/checkbox"   value="值"    name="名称"   checked="checked"/>
+	1、type:
+		当 type="radio" 时，控件为单选框
+		当 type="checkbox" 时，控件为复选框
+	2、value：提交数据到服务器的值（后台程序PHP使用）
+	3、name：为控件命名，以备后台程序 ASP、PHP 使用，同一组的单选按钮，name 取值一定要一致。
+	4、checked：当设置 checked="checked" 时，该选项被默认选中
+			</pre>
+			<h3>下拉列表框</h3>
+			<pre>
+	&lt;select&gt;
+	&lt;option value:“提交值” select="select"&gt;选项&lt;/option&gt;
+	这里select="select"代表该项被默认选中
+	&lt;/select&gt;
+			</pre>
+			<h3>提交按钮</h3>
+			<pre>
+	&lt;input type="submit" value="按钮上的文本"&gt;
+	仅当type="submit"提交按钮才有作用
+			</pre>
+			<h3>重置按钮</h3>
+			<pre>
+	&lt;input type="reset" value="按钮上的文本"&gt;
+	重置整个&lt;form&gt;…&lt;form&gt;内的所有框
+			</pre>
+			<h3>label</h3>
+			<pre>
+	当用户单击选中该label标签时，
+	浏览器就会自动将焦点转到和标签相关的表单控件上
+	（就自动选中和该label标签相关连的表单控件上）。
+	&lt;label for="控件id名称"&gt;
+			</pre>
+		</main>
 	</body>
 </html>
-<!DOCTYPE html>

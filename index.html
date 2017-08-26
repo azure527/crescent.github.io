@@ -7,8 +7,8 @@
 		<link href="./css/Initialization.css" rel="stylesheet" type="text/css" />
 		<!-- 初始化样式 -->
 		<title>Blog · 以前是狼</title>
+		<!-- 导航框架样式 -->
 		<style type="text/css">
-		/* 导航框架样式 */
 			.sidebar {
 				display:inline-block;
 				position:fixed;
@@ -20,10 +20,17 @@
 				background-image:url("./img/bg_sidebar_index.jpg");
 				background-size:cover;
 				background-position:center center;
+				z-index:2;
+			}
+			
+			@media (max-width:600px) {
+				.sidebar {
+					left:-18.5rem;
+				}
 			}
 		</style>
-		<style>
-		/* 内容栏样式 */
+		<!-- 内容栏样式 -->
+		<style type="text/css">
 			main {
 				position:relative;
 				overflow-x:hidden;
@@ -40,14 +47,53 @@
 			span {
 				color:#369;
 			}
-		
+			
+			@media (max-width:1000px) {
+				main {
+					max-width:24rem;
+				}
+			}
+			
+			@media (max-width:850px) {
+				main {
+					max-width:14rem;
+				}
+			}
+			
+			@media (max-width:600px) {
+				main {
+					margin-left:4rem;
+				}
+			}
+			
+			
 		</style>
+		<!-- 导航显示按钮样式 -->
+		<style type="text/css">
+			.showbar {
+				display:inline-block;
+				position:fixed;
+				top:1rem;
+				left:1rem;
+				color:#369;
+			}
+		</style>
+		<!-- 脚本 -->
 		<script type="text/javascript">
-
+			function showbar() {
+				var sidebar = document.getElementById("sidebar")
+				var showbar = document.getElementById("showbar")
+				sidebar.style.left="0";
+				showbar.style.display=none;
+			}
 		</script>
 	</head>
 	<body>
+		<!-- 导航显示按钮 -->
+		<a id="showbar" class="showbar" href="javascript:;" onclick="showbar()">☰</a>
+		<!-- 导航框架 -->
 		<iframe id="sidebar" class="sidebar" src="./sidebar.html">此浏览器不支持iframe框架</iframe>
+		<!-- 内容 -->
 		<main>
 			<h1 class="post_title">关于本站</h1>
 			<hr />
@@ -60,7 +106,5 @@
 			<p class="post_p">也不知道最后能成什么样</p>
 			<p class="post_p"></p>
 		</main>
-	</body>
-		
 	</body>
 </html>

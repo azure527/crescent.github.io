@@ -5,30 +5,101 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<meta name="viewport" content="height=device-height, initial-scale=1, user-scalable=no">
 		<link href="../css/Initialization.css" rel="stylesheet" type="text/css" />
-		<style>
-			body::-webkit-scrollbar {
-				width: 0;
+		<!-- 初始化样式 -->
+		<title>Blog · 以前是狼</title>
+		<!-- 导航框架样式 -->
+		<style type="text/css">
+			.sidebar {
+				display:inline-block;
+				position:fixed;
+				top:0;
+				bottom:0;
+				left:0;
+				height:100vh;
+				width:19rem;
+				background-image:url("../img/bg_sidebar_index.jpg");
+				background-size:cover;
+				background-position:center center;
+				z-index:2;
+			}
+			
+			@media (max-width:600px) {
+				.sidebar {
+					left:-18.5rem;
+				}
+			}
+		</style>
+		<!-- 内容栏样式 -->
+		<style type="text/css">
+			main {
+				position:relative;
+				overflow-x:hidden;
+				margin-left:22rem;
+				margin-right:4rem;
+				padding-top:2rem;
+				z-index:1;
 			}
 			
 			.post_title {
-				margin-bottom:0.5rem;
 				color:#66f;
 			}
 			
 			.post_p {
-				padding-top:0.5rem;
-				padding-bottom:0.5rem;
-				color:#777;
-				background-color:#eee;
+				margin-top:1rem;
+				background-color:#ddd;
+				color:#369;
+			}
+			
+			@media (max-width:1000px) {
+				main {
+					max-width:24rem;
+				}
+			}
+			
+			@media (max-width:850px) {
+				main {
+					max-width:14rem;
+				}
+			}
+			
+			@media (max-width:600px) {
+				main {
+					margin-left:4rem;
+				}
 			}
 		</style>
+		<!-- 导航显示按钮样式 -->
+		<style type="text/css">
+			.showbar {
+				display:inline-block;
+				position:fixed;
+				top:1rem;
+				left:1rem;
+				color:#369;
+			}
+		</style>
+		<!-- 脚本 -->
+		<script type="text/javascript">
+			function showbar() {
+				var sidebar = document.getElementById("sidebar")
+				var showbar = document.getElementById("showbar")
+				sidebar.style.left="0";
+				showbar.style.display=none;
+			}
+		</script>
 	</head>
 	<body>
-		<article class="post">
-					<h1 class="post_title">MarkDown学习</h1>
-					<p class="post_p">目前学习MD的学习笔记：</p>
-					<hr />
-					<xmp>
+		<!-- 导航显示按钮 -->
+		<a id="showbar" class="showbar" href="javascript:;" onclick="showbar()">☰</a>
+		<!-- 导航框架 -->
+		<iframe id="sidebar" class="sidebar" src="../sidebar.html">此浏览器不支持iframe框架</iframe>
+		<!-- 内容 -->
+		<main>
+			<h1 class="post_title">MarkDown学习</h1>
+			<p class="post_p">这是记录我学习MarkDown的笔记</p>
+			<hr />
+			<xmp>
+
 # 今天吃撑了
 
 <font face="黑体">我是黑体字</font>		
@@ -80,6 +151,6 @@ class HelloWrold{
 	
 ~~hahahaha~~	
 		</xmp>
-		<!--<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>-->
+		</main>
 	</body>
 </html>
